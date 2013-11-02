@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Id:
+  = @user.id
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Password digest:
+  = @user.password_digest
+%p
+  %b Token:
+  = @user.token
+%p
+  %b Admin:
+  = @user.admin
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Password reset token:
+  = @user.password_reset_token
+%p
+  %b Password reset sent at:
+  = @user.password_reset_sent_at
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path

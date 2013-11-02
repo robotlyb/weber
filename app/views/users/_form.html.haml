@@ -1,0 +1,14 @@
+%legend 
+  %strong 报名信息
+= form_for(@user) do |f|
+  .component
+    = f.label :name, "姓名"
+    = f.text_field :name, :autofocus => true, :style => "width: 280px"
+  .component
+    = f.label :email, "Email邮箱"
+    = f.email_field :email, :autofocus => true, :style => "width: 280px"
+  .component
+    = f.label :password, "密码"
+    = f.password_field :password, :autofocus => true, :style => "width: 280px"
+  = f.submit "提交"
+ 

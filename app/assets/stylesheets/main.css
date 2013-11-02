@@ -1056,3 +1056,32 @@ border-bottom: 1px #ccc solid;
 .recruit .r_img {
   display: block;
 }
+
+.form {
+  margin: 0 auto;
+  width: 600px;
+  border: 1px #ccc solid;
+}
+
+.form-group {
+  padding-bottom: 20px;
+}
+
+.form .component {
+  margin: 0 auto;
+  width: 400px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.form .component label {
+  float: left;
+vertical-align: bottom;
+padding-top: 5px;
+  width: 100px;
+}
+
+.form legend {
+  color: #008c7e;
+}
+
