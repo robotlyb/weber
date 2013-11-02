@@ -1,6 +1,10 @@
 %legend 
   %strong 报名信息
 = form_for(@user) do |f|
+  -if @user.errors.any?
+    .error_messages
+      %h4 填写的信息有误
+
   .component
     = f.label :name, "姓名"
     = f.text_field :name, :autofocus => true, :style => "width: 280px"
