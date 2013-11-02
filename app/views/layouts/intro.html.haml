@@ -4,6 +4,8 @@
     %title PureWeber
   %meta(http-equiv="content-type" content="text/html; charset=gb2312")
   = csrf_meta_tag
+  %nav.header_login.clearfix
+    %a(href="/users/new" target="_blank" class="h_button") 登陆
   %header.hero
     %figure
       =image_tag "/assets/pureweber.png"
@@ -15,6 +17,9 @@
     %footer.wrap.footer
       .container
         %p.copyright © COPYRIGHT PUREWEBER 2013, WEBSITE BY <a href="http://kgtong.me/">KgTong</a>
-    = javascript_include_tag "application"
+    = javascript_include_tag "jquery"
+    = javascript_include_tag "jquery_ujs"
+    = javascript_include_tag "plugins"
+    = javascript_include_tag "main"
     = stylesheet_link_tag 'main.css'
     = yield :bootstrap

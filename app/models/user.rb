@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :admin, :email, :id, :name, :password_digest, :password_reset_sent_at, :password_reset_token, :token, :password
   
   validates_presence_of :name, :email, :password
+  validates :name, :email, uniqueness: true
 
   def password
     @password

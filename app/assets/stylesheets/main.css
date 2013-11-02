@@ -1089,3 +1089,35 @@ padding-top: 5px;
   color: #008c7e;
 }
 
+.a_login {
+  font-size: 20px;
+  color: #008c7e;
+}
+
+.header_login {
+  height: 40px;
+  background-color: #fff;
+  padding: 1px 0;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.header_login .h_button {
+  float: right;
+  display: inline-block;
+  font-weight: normal;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  margin-right: 3%;
+  padding: 3px 12px 3px 12px;
+  box-shadow: 0 1px 0 white;
+  background-color: #EC2E52;
+  border-radius: 3px;
+}
+
+.header_login a:hover{
+  background-color: #e5744e;
+}
+
