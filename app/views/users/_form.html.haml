@@ -3,13 +3,13 @@
 = form_for(@user) do |f|
   -if @user.errors.any?
     .error_messages
-      %h4 填写的信息有误
+      %h4 填写信息有误
 
   .component
     = f.label :name, "姓名"
     = f.text_field :name, :autofocus => true, :style => "width: 280px"
   .component
-    = f.label :email, "Email邮箱"
+    = f.label :email, "Email"
     = f.email_field :email, :autofocus => true, :style => "width: 280px"
   .component
     = f.label :password, "密码"

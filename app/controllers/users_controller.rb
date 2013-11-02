@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-  layout 'intro', only: [:new]
+  layout 'intro', only: [:new, :login]
   def index
     @users = User.all
 
@@ -70,8 +70,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
     @user.destroy

@@ -1,0 +1,11 @@
+%legend 
+  %strong 登陆信息
+= form_tag "/sessions_path" do |f|
+
+  .component
+    = label_tag "Email"
+    = text_field_tag :email, params[:email] , :class => "text_field_280"
+  .component
+    = label_tag "密码"
+    = password_field_tag :password, params[:password], :class => "text_field_280"
+  = submit_tag "登陆"

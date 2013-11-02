@@ -21,6 +21,14 @@ class User < ActiveRecord::Base
     end
     false
   end
+
+  def self.authentication(email, password)
+    user = User.find_by_email(email)
+    if user && Digest::SHA256.hexdigest(password + user.salt) == user.password_digest
+      return user
+    end
+    false
+  end
   
   private
   def generate_password(pass)
