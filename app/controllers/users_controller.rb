@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  layout 'intro', only: [:new]
   def index
     @users = User.all
 
