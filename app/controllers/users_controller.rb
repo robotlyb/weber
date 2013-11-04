@@ -17,11 +17,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find_by_name(params[:member_name])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
+    
+    render :layout => 'back'
   end
 
   # GET /users/new

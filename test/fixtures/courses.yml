@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tittle: MyString
+  intro: MyString
+  description: MyText
+  public: 
+  comments_count: 1
+  user_id: 1
+  assignment_id: 1
+
+two:
+  tittle: MyString
+  intro: MyString
+  description: MyText
+  public: 
+  comments_count: 1
+  user_id: 1
+  assignment_id: 1

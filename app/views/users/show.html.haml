@@ -1,29 +1,26 @@
-%p#notice= notice
+-content_for :body do
+  %section#about.wrap.about.role
+    %header
+      %h2 就差一步啦~
+    .content
+      .courses
+        .side
+        .full
+          .course
+            .screenshot
+              %a(href="/episodes/417-foundation")
+                =image_tag src="ha.png", size: "125x200"
+            .main
+              .info
+                %span.number Episode #417
+                %span.published_at Jun 16, 2013
+                %span.comments
+                  %a(href="/episodes/417-foundation?view=comments") 60 comments
+              %h2
+                %a(href="/episodes/417-foundation") Foundation
+              
+              .description ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.
+              %span.stats (11 minutes)
+-content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides'
 
-%p
-  %b Id:
-  = @user.id
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Password digest:
-  = @user.password_digest
-%p
-  %b Token:
-  = @user.token
-%p
-  %b Admin:
-  = @user.admin
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Password reset token:
-  = @user.password_reset_token
-%p
-  %b Password reset sent at:
-  = @user.password_reset_sent_at
-
-
-= link_to '退出', logout_path

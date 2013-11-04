@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Course:
+  = @assignment.course_id
+%p
+  %b User:
+  = @assignment.user_id
+%p
+  %b Content:
+  = @assignment.content
+%p
+  %b Feedback:
+  = @assignment.feedback_id
+
+= link_to 'Edit', edit_assignment_path(@assignment)
+\|
+= link_to 'Back', assignments_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Assignment:
+  = @feedback.assignment_id
+%p
+  %b Content:
+  = @feedback.content
+%p
+  %b Mark:
+  = @feedback.mark
+
+= link_to 'Edit', edit_feedback_path(@feedback)
+\|
+= link_to 'Back', feedbacks_path
