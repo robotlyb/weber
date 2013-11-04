@@ -1,0 +1,12 @@
+-content_for :body do
+  %nav.global-nav.affix-top
+    %h2 PureWeber欢迎您!
+  %section#about.wrap.about.role
+    %header
+      %h2 就差一步啦~
+
+    %aside.form
+      = render 'form'
+
+- content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides.css'
