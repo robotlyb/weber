@@ -159,7 +159,10 @@ img { max-width: 100%; }
   max-width: 100%;
 }
 .members-list h3 {
-  font-size: 1em;
+  padding-top: 4px;
+  padding-right: 42px;
+  text-align: center;
+  font-size: 1.2em;
   text-transform: uppercase;
   color: #EC2E52;
   margin: 8px 0 0;

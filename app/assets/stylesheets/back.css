@@ -112,7 +112,7 @@ img { max-width: 100%; }
  */
 
 .global-nav {
-  background-color: #fff;
+  background-image: linear-gradient(to bottom, #EEE 0%,#F5F5F5 15%);
   padding: 10px 0;
   height: 40px;
   position: relative;
@@ -132,7 +132,7 @@ img { max-width: 100%; }
 
 
 .global-nav ul {
-  margin-right: 10%;
+  margin-right: 9%;
   margin-top: 10px;
   font-size: 16px;
 }
@@ -158,13 +158,7 @@ img { max-width: 100%; }
 .wrap {
   padding: 60px 10px;
   border-bottom: 1px solid #ccc;
-  background-color: #F5F5F5;
-  background-image: -moz-linear-gradient(top, #EEE 0%, #F5F5F5 15%);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEE), color-stop(15%,#F5F5F5));
-  background-image: -webkit-linear-gradient(top, #EEE 0%,#F5F5F5 15%);
-  background-image: -o-linear-gradient(top, #EEE 0%,#F5F5F5 15%);
-  background-image: -ms-linear-gradient(top, #EEE 0%,#F5F5F5 15%);
-  background-image: linear-gradient(to bottom, #EEE 0%,#F5F5F5 15%);
 }
 .wrap header {
   margin-bottom: 60px;
@@ -279,6 +273,12 @@ img { max-width: 100%; }
     clear: both;
 }
 
+.clear {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+    clear: both;
+}
+
 /*
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
@@ -291,7 +291,7 @@ img { max-width: 100%; }
 /*back custom*/
 .message {
 display: inline-block;
-padding: 2px 4px;
+padding: 3px 4px;
 font-size: 11.844px;
 font-weight: bold;
 line-height: 14px;
@@ -317,7 +317,7 @@ border-radius: 3px;
 }
 
 .courses {
-margin-right: 200px;
+margin-right: 220px;
 }
 
 .full .course {
@@ -341,11 +341,79 @@ clear: both;
 .full .info {
 color: #999;
 font-size: 12px;
+text-align: left;
 }
 
 .full h2 h2 {
 font-size: 18px;
+
 }
 .full .description {
+text-align: left;
 margin-bottom: 17px;
+}
+
+.search_option {
+  width: 170px;
+}
+
+.search_option ul li {
+  font-size: 14px; 
+  padding: 4px;
+}
+
+.search_option ul {
+list-style: none;
+margin: 0;
+padding: 0;
+border: solid 1px #bbb;
+border-top: none;
+padding: 5px 20px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-bottomleft: 5px;
+-moz-border-radius-bottomright: 5px;
+}
+
+.search_option h2 {
+padding: 4px 20px;
+margin: 0;
+font-weight: normal;
+color: #444;
+font-size: 14px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+-webkit-border-top-left-radius: 6px;
+-webkit-border-top-right-radius: 6px;
+-moz-border-radius-topleft: 6px;
+-moz-border-radius-topright: 6px;
+border: solid 1px #bbb;
+border-bottom-color: #AAA;
+background-color: #DDD;
+background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+background: -moz-linear-gradient(top, #eee, #ccc);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#CCCCCC');
+}
+
+.screenshot img {
+height:125px;
+float: left;
+background-color: white;
+padding: 5px;
+border-radius: 5px;
+border: 1px solid #dedede;
+margin: -5px 10px 5px 0px;
+}
+
+.screenshot img:hover {
+border-color: #c3ca7d;
+-webkit-box-shadow: 0 0 10px #529f86;
+text-decoration: none;
+}
+
+.badge {
+  vertical-align: text-bottom;
+
 }
