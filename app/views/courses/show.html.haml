@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Tittle:
+  = @course.tittle
+%p
+  %b Intro:
+  = @course.intro
+%p
+  %b Description:
+  = @course.description
+%p
+  %b Public:
+  = @course.public
+%p
+  %b Comments count:
+  = @course.comments_count
+%p
+  %b User:
+  = @course.user_id
+%p
+  %b Assignment:
+  = @course.assignment_id
+
+= link_to 'Edit', edit_course_path(@course)
+\|
+= link_to 'Back', courses_path

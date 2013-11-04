@@ -4,6 +4,7 @@
     %title PureWeber
   %meta(http-equiv="content-type" content="text/html; charset=gb2312")
   = csrf_meta_tag
+  = stylesheet_link_tag 'main.css'
   =yield :header
 
   %body
@@ -16,5 +17,4 @@
     = javascript_include_tag "jquery_ujs"
     = javascript_include_tag "plugins"
     = javascript_include_tag "main"
-    = stylesheet_link_tag 'main.css'
     = yield :bootstrap

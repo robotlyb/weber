@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131102070703) do
+ActiveRecord::Schema.define(:version => 20131104061637) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "feedback_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "tittle"
+    t.string   "intro"
+    t.text     "description"
+    t.boolean  "public"
+    t.integer  "comments_count"
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "assignment_id"
+    t.text     "content"
+    t.integer  "mark"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

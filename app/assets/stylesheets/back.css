@@ -1,0 +1,351 @@
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+    font-family:Verdana,Helvetica,Arial;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+  text-align: center;
+  font-family: Helvetica, Arial, 'Hiragino Sans GB', STHeiti, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-width: 320px;
+}
+
+a {
+  color: #2c3035;
+  text-decoration: none;
+}
+a:hover{
+  color: #e5744e;
+}
+
+img { max-width: 100%; }
+
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/*
+ * Global Nav, will be sticky when scrolling down.
+ */
+
+.global-nav {
+  background-color: #fff;
+  padding: 10px 0;
+  height: 40px;
+  position: relative;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.global-nav .mark {
+  float: left; 
+  margin-left: 5%;
+}
+
+.mark h3 {
+  margin-top: 3px;
+}
+
+
+.global-nav ul {
+  margin-right: 10%;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.global-nav ul li {
+  float: right;
+  display: inline;
+}
+.global-nav ul li a {
+  text-decoration: none;
+  padding: 10px;
+}
+
+.global-nav ul li ul li{
+  float: none;
+  width: 140px;
+}
+
+.global-nav ul li ul li a {
+  text-decoration: none;
+  padding: 5px;
+}
+  
+.wrap {
+  padding: 60px 10px;
+  border-bottom: 1px solid #ccc;
+  background-color: #F5F5F5;
+  background-image: -moz-linear-gradient(top, #EEE 0%, #F5F5F5 15%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEE), color-stop(15%,#F5F5F5));
+  background-image: -webkit-linear-gradient(top, #EEE 0%,#F5F5F5 15%);
+  background-image: -o-linear-gradient(top, #EEE 0%,#F5F5F5 15%);
+  background-image: -ms-linear-gradient(top, #EEE 0%,#F5F5F5 15%);
+  background-image: linear-gradient(to bottom, #EEE 0%,#F5F5F5 15%);
+}
+.wrap header {
+  margin-bottom: 60px;
+  font-size: 1.2em;
+  color: #555;
+}
+.wrap header h2 {
+  color: #444;
+}
+.wrap > p {
+  color: #888;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+
+.about > p {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: left;
+  color: #888;
+  font-size: 18px;
+  line-height: 28px;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+
+.footer {
+  color: #666;
+  border: none;
+  background: #2c3035;
+  padding: 80px 0 20px;
+}
+.footer .container { max-width: 820px; }
+.footer header {
+  position: relative;
+  border-bottom: 1px solid #494949;
+  margin: 0;
+}
+.footer header h2 {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  color: #666;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 30px;
+  width: 220px;
+  margin: 0 0 0 -110px;
+  background-color: #2c3035;
+}
+.footer a {
+  color: #666;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #d2d2d2;
+}
+.footer .credits {
+  border-bottom: 1px solid #494949;
+  padding: 40px 0 10px;
+}
+.footer .credits li {
+  list-style: none;
+  display: inline;
+  display: inline-block;
+  font-size: 20px;
+  min-width: 270px;
+}
+.footer .credits li p { margin: 30px auto; }
+.footer .social a{
+  display: inline;
+  display: inline-block;
+  line-height: 35px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin: 40px 20px 10px;
+  -webkit-transition: background-color 0.15s linear;
+     -moz-transition: background-color 0.15s linear;
+       -o-transition: background-color 0.15s linear;
+          transition: background-color 0.15s linear;
+}
+.footer .social a:hover {
+  background-color: #d2d2d2;
+}
+.footer .copyright {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #666;
+}
+
+
+/* Affix */
+.affix {
+  position: fixed;
+  top: 0;
+  z-index: 1099;
+  width: 100%;
+  background-color: rgba(255,255,255,.95);
+}
+
+
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/*back custom*/
+.message {
+display: inline-block;
+padding: 2px 4px;
+font-size: 11.844px;
+font-weight: bold;
+line-height: 14px;
+color: #fff;
+vertical-align: middle;
+white-space: nowrap;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color: #999;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+.content {
+  margin: 0 100px;
+  position: relative;
+}
+
+.side {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.courses {
+margin-right: 200px;
+}
+
+.full .course {
+padding-bottom: 18px;
+border-bottom: solid 1px #e5e5e5;
+margin-bottom: 20px;
+}
+
+.full .screenshot {
+float: left;
+}
+
+.full .main {
+margin-left: 215px;
+}
+
+.clear {
+clear: both;
+}
+
+.full .info {
+color: #999;
+font-size: 12px;
+}
+
+.full h2 h2 {
+font-size: 18px;
+}
+.full .description {
+margin-bottom: 17px;
+}
