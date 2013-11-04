@@ -1,6 +1,6 @@
 %legend 
   %strong 报名信息
-= form_for(@user) do |f|
+= form_for(@user, url: '/member') do |f|
   -if @user.errors.any?
     .error_messages
       %h4 填写信息有误

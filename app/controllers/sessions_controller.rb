@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 
   layout 'intro', only: [:new]
+  before_filter :auth, only: [:new]
+
   def new
     @user = User.new
 
@@ -13,13 +15,18 @@ class SessionsController < ApplicationController
   def create
     @user = User.authentication(params[:email], params[:password])
     if @user
-      session[:user_id] = @user.id
+      cookies.permanent[:token] = @user.token
       flash[:notice] = "Weclome #{@user.name}"
-      redirect_to root_path
+      redirect_to member_path(@user.name)
     else
       flash[:notice] = "The login or password is not correct."
       redirect_to new_session_path
     end
+  end
+
+  def logout
+    cookies.delete(:token)
+    redirect_to root_url
   end
 
 end

@@ -1,7 +1,9 @@
+# encoding:utf-8
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-  layout 'intro', only: [:new, :login]
+  layout 'intro', only: [:new]
+  before_filter :auth, only: [:new]
   def index
     @users = User.all
 
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_name(params[:member_name])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,11 +47,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        redirect_to root_path
-        format.json { render json: @user, status: :created, location: @user }
+        cookies.permanent[:token] = @user.token
+        format.html { redirect_to member_path(@user.name) }
       else
         format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

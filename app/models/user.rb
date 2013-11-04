@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :password
   validates :name, :email, uniqueness: true
 
+  before_create { generate_token(:token) }
+
+
   def password
     @password
   end
@@ -29,11 +32,17 @@ class User < ActiveRecord::Base
     end
     false
   end
-  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])  
+  end
+
   private
   def generate_password(pass)
     salt = Array.new(10){rand(1024).to_s(36)}.join
     self.salt, self.password_digest = 
       salt, Digest::SHA256.hexdigest(pass + salt)
   end
+
 end

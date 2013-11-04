@@ -25,6 +25,5 @@
   %b Password reset sent at:
   = @user.password_reset_sent_at
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+
+= link_to '退出', logout_path
