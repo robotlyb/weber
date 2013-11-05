@@ -23,6 +23,10 @@ Weber::Application.routes.draw do
   get "/:member_name" => "users#show", :as => "member"
   post "/member" => "users#create"
 
+  # admin course
+  get "/:member_name/courses" => "courses#index" , :as => "admin_courses"
+
+
 
 
   root :to => 'home#index'

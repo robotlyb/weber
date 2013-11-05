@@ -1,0 +1,12 @@
+default: &default
+  image:
+    default_poster: '/assets/hit_helper.jpg'
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+
+test:
+  <<: *default

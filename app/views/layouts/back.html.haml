@@ -16,10 +16,10 @@
         %a(href="#" class="dropdown-toggle" data-toggle="dropdown") kgtong<b class="caret"></b>
         %ul.dropdown-menu
           %li 
-            %a(href="#") 
-              <span class="glyphicon glyphicon-star"></span>个人资料
-          %li 
             %a(href="#") 个人资料
+          -if current_user.is_admin?
+            %li 
+              = link_to '我的课程', admin_courses_path
       %li 
         %a(href="#about")
           %span.message 4

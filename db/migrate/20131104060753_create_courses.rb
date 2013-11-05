@@ -4,6 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :title
       t.string :intro
       t.text :description
+      t.string :poster
       t.boolean :public
       t.integer :comments_count
       t.integer :user_id

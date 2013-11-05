@@ -1,8 +1,11 @@
+#encoding: utf-8
 class CoursesController < ApplicationController
-  # GET /courses
-  # GET /courses.json
+  require 'debugger'
+  
+  layout 'back'
   def index
-    @courses = Course.all
+    # 查找管理员所发布的课程
+    @courses = Course.get_admin_courses(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb

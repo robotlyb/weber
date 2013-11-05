@@ -9,7 +9,7 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
-    font-family:Verdana,Helvetica,Arial;
+    font-family: "Microsoft YaHei", 微软雅黑, "SimSun", Arial, Lucida Grande, Tahoma, sans-serif;
 }
 
 /*
@@ -413,7 +413,72 @@ border-color: #c3ca7d;
 text-decoration: none;
 }
 
-.badge {
-  vertical-align: text-bottom;
+/*admin courses*/
+
+
+.course-actions {
+  width:100%;
+}
+
+.course-actions li{
+  list-style: none;
+  float: left;
+  padding:5px;
+}
+
+
+.screenshot1:hover {
+border-color: #c3ca7d;
+-webkit-box-shadow: 0 0 10px #529f86;
+text-decoration: none;
+}
+.full .screenshot1 {
+float: left;
+}
+.screenshot1 img {
+height:125px;
+float: left;
+background-color: white;
+padding: 2px;
+border-radius: 3px;
+border: 1px solid #dedede;
+margin: 5px 5px;
+padding: 5px;
+padding-bottom:1px;
 
 }
+
+.screenshot1 {
+float: left;
+background-color: white;
+border-radius: 5px;
+border: 1px solid #dedede;
+margin: -5px 10px 5px 0px;
+}
+
+.screenshot1 h4 {
+border: 1px solid #dedede;
+padding:3px;
+font-size: 18px;
+color: #fff;
+background-color: #6a7378;
+text-align: center;
+}
+
+.public-info {
+  margin-top: -3px;
+}
+
+.courses-role {
+  margin-left:100px;
+  margin-right:100px;
+}
+
+.clearfix1 {clear: both}
+
+.create_course {
+  padding-bottom:20px;
+  float: right;
+}
+
+.create_course button{font-size: 17px;}
