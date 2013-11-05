@@ -2,6 +2,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+#require 'debugger'
   layout 'intro', only: [:new]
   before_filter :auth, only: [:new]
   def index
@@ -34,8 +35,15 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
-  end
+#	debugger 
+		@user = User.find_by_name(params[:member_name])
+		
+		respond_to do |format|
+			format.html
+			format.json{ render json: @user}
+		end
+
+	end
 
   # POST /users
   # POST /users.json

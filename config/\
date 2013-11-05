@@ -1,8 +1,5 @@
 Weber::Application.routes.draw do
 
-  resources :submits
-
-
   resources :feedbacks
 
 
@@ -13,8 +10,7 @@ Weber::Application.routes.draw do
 
 
   resources :courses
-
-	match '/edit/:member_name' => 'users#edit', :via => :get 
+ match '/edit(:member_name)' , to: "users#edit", via: 'get'
   match '/sign_in' => "sessions#new", :via => :get, :as => :new_session
   match '/sign_up' => "users#new", :as => :new_user
   match '/sessions_path' => "sessions#create", :as => "sessions", :via => :post
