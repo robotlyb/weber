@@ -13,7 +13,7 @@ Weber::Application.routes.draw do
 
 
   resources :courses
-
+#resources :users
 	match '/edit/:member_name' => 'users#edit', :via => :get 
   match '/sign_in' => "sessions#new", :via => :get, :as => :new_session
   match '/sign_up' => "users#new", :as => :new_user
