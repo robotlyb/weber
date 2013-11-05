@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @submit.user_id
+%p
+  %b Course:
+  = @submit.course_id
+%p
+  %b Position:
+  = @submit.position
+
+= link_to 'Edit', edit_submit_path(@submit)
+\|
+= link_to 'Back', submits_path

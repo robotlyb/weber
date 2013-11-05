@@ -1,0 +1,23 @@
+%h1 Listing submits
+
+%table
+  %tr
+    %th User
+    %th Course
+    %th Position
+    %th
+    %th
+    %th
+
+  - @submits.each do |submit|
+    %tr
+      %td= submit.user_id
+      %td= submit.course_id
+      %td= submit.position
+      %td= link_to 'Show', submit
+      %td= link_to 'Edit', edit_submit_path(submit)
+      %td= link_to 'Destroy', submit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Submit', new_submit_path

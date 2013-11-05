@@ -1,5 +1,8 @@
 Weber::Application.routes.draw do
 
+  resources :submits
+
+
   resources :feedbacks
 
 
