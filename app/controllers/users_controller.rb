@@ -2,7 +2,6 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-require 'debugger'
 	layout 'intro', only: [:new]
   before_filter :auth, only: [:new]
   def index
@@ -17,7 +16,7 @@ require 'debugger'
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find_by_name(params[:user])
+    @user = User.find_by_name(params[:member_name])
     
     render :layout => 'back'
   end
