@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   has_many :courses,    :dependent => :destroy
   has_many :feedbacks,  :dependent => :destroy
 
-  validates_presence_of :name, :email, :password
+  validates_presence_of :name, :email
+	# 只有create时才验证密码
+	validates_presence_of :password, :on => :create
   validates :name, :email, uniqueness: true
 
   before_create { generate_token(:token) }

@@ -34,8 +34,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
-  end
+   
+		@user = User.find_by_name(params['member_name'])
+		render :layout => 'back'
+	end
 
   # POST /users
   # POST /users.json
@@ -54,12 +56,14 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   # PUT /users/1.json
+	# 映射到edit页面
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_name(params[:user]['name'])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_edit_path(@user.name),
+											notice: "更改成功！下次登录请用此信息！" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
