@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   has_many :feedbacks,  :dependent => :destroy
 
   validates_presence_of :name, :email
-	# 只有在注册时候验证密码
+	# 只有create时才验证密码
 	validates_presence_of :password, :on => :create
-	validates :name, :email, uniqueness: true
+  validates :name, :email, uniqueness: true
 
   before_create { generate_token(:token) }
 
@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])  
+  end
+  
+  def is_admin?
+    return admin == 1
   end
 
   private

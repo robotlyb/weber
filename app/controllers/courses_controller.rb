@@ -1,8 +1,11 @@
+#encoding: utf-8
 class CoursesController < ApplicationController
-  # GET /courses
-  # GET /courses.json
+  require 'debugger'
+  before_filter :check_admin, :only => [:edit]
+  layout 'back'
   def index
-    @courses = Course.all
+    # 查找管理员所发布的课程
+    @courses = Course.get_admin_courses(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,7 +37,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
-    @course = Course.find(params[:id])
+    @course = Course.find(params[:course_id])
   end
 
   # POST /courses
@@ -78,6 +81,16 @@ class CoursesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to courses_url }
       format.json { head :no_content }
+    end
+  end
+
+  def update_poster
+    debugger
+    @course = Course.find(params[:course_id])
+    respond_to do |format|
+      format.js do
+        @course.update_attributes(params[:course])
+      end
     end
   end
 end

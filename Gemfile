@@ -40,3 +40,8 @@ gem 'jquery-rails'
 gem 'haml-rails'
 
 gem "twitter-bootstrap-rails"
+
+gem 'carrierwave'
+gem "rmagick"
+gem 'settingslogic'
+gem 'jquery-fileupload-rails', '0.4.0'

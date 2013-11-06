@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-	layout 'intro', only: [:new]
+  layout 'intro', only: [:new]
   before_filter :auth, only: [:new]
   def index
     @users = User.all
@@ -34,10 +34,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+   
 		@user = User.find_by_name(params['member_name'])
-		
 		render :layout => 'back'
-
 	end
 
   # POST /users
@@ -54,20 +53,24 @@ class UsersController < ApplicationController
       end
     end
   end
-	
-# 映射到edit页面
-	def update 
-		@user = User.find_by_name(params[:user]['name'])
-			respond_to do |format|
-				if @user.update_attributes(params[:user])
-					format.html { redirect_to user_edit_path(@user.name), notice: "更改成功！"}
-					format.json { head :no_content}
-				else
-					format.html { render action: "edit" }
-					format.json {render json: @user.errors, status: :unprocessable_entity}
-				end
-			end
-	end	
+
+  # PUT /users/1
+  # PUT /users/1.json
+	# 映射到edit页面
+  def update
+    @user = User.find_by_name(params[:user]['name'])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to user_edit_path(@user.name),
+											notice: "更改成功！下次登录请用此信息！" }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def destroy
     @user = User.find(params[:id])
