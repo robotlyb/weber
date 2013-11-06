@@ -1,20 +1,30 @@
 -content_for :body do
   %section#about.wrap.about.role.clearfix
     .content
-      .courses.courses-role1
+      .courses.courses-role
         .create_course
           %button(type="button" class="btn btn-success") 创建新课程
         .clearfix1
         .full
-          .tutorial-nav
-            .edit-course-info-area
-              .eidt-course-poster
+          .course
+            .screenshot1#role-screenshot1
+              .eidt-course-poster(style="margin-bottom:5px;")
                 %p 课程封面(最佳宽高比为16：9)
                 .poster-preview
                   =image_tag("/assets/hit_helper.jpg", :id => "poster")
-                .edit-course-poster.btn.btn-danger
+                .edit-course-poster.btn.btn-info
                   %span#poster-upload-tip 更新课程封面
                   <input id="poster-fileupload" name="course[poster]" type="file">
+            .course-main
+              =form_tag(:class => "form-horizontal form-ad", :role =>"form") do
+                .form-group
+                  %label(for="inputEmail3" class="col-sm-2 control-label") Email
+                  .col-sm-10
+                    %input(type="email" class="form-control" id="inputEmail3" placeholder="Email")
+                .form-group
+                  %label(for="inputPassword3" class="col-sm-2 control-label") Password
+                  .col-sm-10
+                    %input(type="password" class="form-control" id="inputPassword3" placeholder="Password")
 
 -content_for :bootstrap do
   = stylesheet_link_tag 'bootstrap_and_overrides'

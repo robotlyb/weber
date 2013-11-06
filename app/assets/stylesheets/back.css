@@ -488,11 +488,6 @@ text-align: center;
   margin-left: 60px;
   margin-right: 60px;
 }
-.tutorial-page {
-min-width: 100%;
-display: table;
-margin-top: 30px;
-}
 .tutorial-nav {
 display: table-cell;
 vertical-align: top;
@@ -502,37 +497,17 @@ min-width: 250px;
 padding-right: 10px;
 position: static;
 }
-.tutorial-content {
-display: table-cell;
-border-left: 1px solid #cccccc;
-padding-left: 20px;
-width: 100%;
-}
-.edit-course-info-area {
-padding-top: 5px;
-}
-.edit-course-info-area #edit-course-poster {
-margin-bottom: 35px;
-}
-.edit-course-info-area p {
-margin-bottom: 5px;
-}
 .edit-course-poster {
+  margin-top: 5px;
   position: relative;
-}
-.edit-course-info-area #edit-course-poster .poster-preview #poster{
-margin: 5px 0 20px;
-width: 320px;
-height: 175px;
 }
 
 .poster-preview img {
-  height: 170px;
+  width: 220px;
+  height: 150px;
   background-color: white;
-  padding: 5px;
   border-radius: 5px;
   border: 1px solid #dedede;
-  margin: -5px 10px 5px 0px;
 }
 
 input#poster-fileupload {
@@ -544,4 +519,41 @@ font-size: 23px;
 direction: ltr;
 cursor: pointer;
 width: 100%;
+}
+
+.course-main {
+margin-left: 70px;
+border: 2px solid #008c7e;
+height: 300px;
+padding: 30px;
+}
+
+#role-screenshot1 {
+  margin-top: -50px;
+}
+
+.form-title {
+  float: left;
+}
+
+form label {
+  float: left;
+  text-align: left;
+width: 100px;
+padding-left: 90px;
+display: block;
+margin-bottom: 5px;
+margin-top: 10px;
+font-size: 15px;
+}
+.form-ad {
+  margin-top:50px;
+}
+.col-sm-10 input {
+  margin-left: -300px;
+}
+form .form-group {
+  margin-left: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
