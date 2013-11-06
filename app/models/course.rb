@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
   belongs_to :user
 
   # 仅需返回部分消息
-  scope :nav_info, lambda { Course.select(['id', 'title', 'intro', 'poster']) }
+  scope :nav_info, lambda { Course.select(['id', 'title', 'intro', 'poster', 'comments_count', 'created_at']) }
   # admin课程
   scope :admin_courses, lambda { |admin_id| { 
           :conditions => ['user_id = ?', admin_id], :order => 'id DESC' } }
@@ -19,6 +19,10 @@ class Course < ActiveRecord::Base
 
   def self.get_admin_courses(admin_id)
     self.admin_courses(admin_id).nav_info
+  end
+
+  def public
+    public == 1
   end
 
 end

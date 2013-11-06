@@ -25,8 +25,9 @@ Weber::Application.routes.draw do
 
   # admin course
   get "/:member_name/courses" => "courses#index" , :as => "admin_courses"
-
-
+  get "/:member_name/:course_id/edit" => "courses#edit", :as => "edit_course"
+  
+  match 'update_poster/:course_id' => 'courses#update_poster', :as => :update_poster
 
 
   root :to => 'home#index'

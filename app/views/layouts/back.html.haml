@@ -4,7 +4,6 @@
     %title PureWeber
   %meta(http-equiv="content-type" content="text/html; charset=gb2312")
   = csrf_meta_tag
-  = javascript_include_tag "application"
   = stylesheet_link_tag 'back'
   %nav.global-nav
     .mark
@@ -29,6 +28,6 @@
     %footer.wrap.footer
       .container
         %p.copyright © COPYRIGHT PUREWEBER 2013, WEBSITE BY <a href="http://kgtong.me/">KgTong</a>
-    = javascript_include_tag "jquery"
-    = javascript_include_tag "jquery_ujs"
+    = javascript_include_tag 'application'
     = yield :bootstrap
+    = yield :template_js
