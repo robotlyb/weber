@@ -1,0 +1,18 @@
+-content_for :body do
+	%section#about.wrap.about.role
+		-if flash[:notice]
+			= flash[:notice]
+		%legend
+			%strong 编辑个人资料
+		= form_for(@user,url: "/#{@user.name}/edit" , method: 'post') do |f|
+			.component
+				= f.label :name,"姓名"
+				= f.text_field :name, :autofocus => true, :style => "width: 280px"
+			.component
+				= f.label :email, "邮箱"
+				= f.email_field :email, :autofocus => true, :style => "width: 280px"
+			=f.submit "保存更改"		
+		
+		
+-content_for :bootstrap do
+	=stylesheet_link_tag 'bootstrap_and_overrides'
