@@ -3,7 +3,7 @@
     .content
       .courses.courses-role
         .create_course
-          %button(type="button" class="btn btn-success") 创建新课程
+          = link_to "创建新课程", new_course_path(current_user.name), :class => "btn btn-success"
         .clearfix1
         .full
           .course
@@ -16,15 +16,34 @@
                   %span#poster-upload-tip 更新课程封面
                   <input id="poster-fileupload" name="course[poster]" type="file">
             .course-main
-              =form_tag(:class => "form-horizontal form-ad", :role =>"form") do
-                .form-group
-                  %label(for="inputEmail3" class="col-sm-2 control-label") Email
-                  .col-sm-10
-                    %input(type="email" class="form-control" id="inputEmail3" placeholder="Email")
-                .form-group
-                  %label(for="inputPassword3" class="col-sm-2 control-label") Password
-                  .col-sm-10
-                    %input(type="password" class="form-control" id="inputPassword3" placeholder="Password")
+              .form-info
+                =form_for(@course, :action => :update, :method => :put, :class => "form-horizontal form-ad", :role =>"form") do
+                  .form-group
+                    %label(for="inputTitle" class="col-sm-2 control-label") 课程名
+                    .col-sm-10
+                      %input(type="text" class="form-control" id="inputTitle" name="course[title]" value="#{@course.title}")
+                  .form-group
+                    %label(for="inputIntro" class="col-sm-2 control-label") 课程简介
+                    .col-sm-10
+                      %textarea(class="form-control textareaIntro" id="textareaIntro" name="course[intro]" rows="5") #{@course.intro}
+                  .form-group
+                    %label(for="textareaDescription" class="col-sm-2 control-label the-third") 课程信息
+                    .col-sm-10
+                      %textarea(class="form-control" id="textareaDescription" name="course[description]" rows="15") #{@course.description}
+                  .form-group
+                    %label(for="textareaAssignment" class="col-sm-2 control-label the-third") 作业信息
+                    .col-sm-10
+                      -if @course.assignment.blank?
+                        %textarea(class="form-control" id="textareaAssignment" name="assignment[content]" rows="15" placeholder="作业信息")
+                      -else
+                        %textarea(class="form-control" id="textareaAssignment" name="assignment[content]" rows="15") #{@course.assignment.content}
+                    
+                  = render 'add_courseware' 
+                  .form-group
+                    %label(for="inputSubmit" class="col-sm-2 control-label")
+                    .col-sm-10
+                      = submit_tag( "完成编辑", class: "btn btn-success")
+            
 
 -content_for :bootstrap do
   = stylesheet_link_tag 'bootstrap_and_overrides'
@@ -37,7 +56,6 @@
               dataType: 'script',
               url: '/update_poster/#{@course.id}',
               add: function(e, data){
-                alert("haha");
                 types = /(\.|\/)(gif|jpe?g|png)$/i;
                 file = data.files[0];
                 console.log(file.type);
@@ -59,4 +77,36 @@
               },
           });
         });
+  
+       //上传课件 
+       jQuery(function($) {
+         var _tip = $("#courseware-upload-tip");
+         var _filename = $(".courseware-name");
+         $('#courseware-fileupload').fileupload({
+             dataType: 'script',
+             url: "/edit_courseware/#{@course.id}",
+             add: function(e, data){
+               types = /(\.|\/)(txt|doc|docx|ppt|pptx|tar|zip|rar)$/i;
+               file = data.files[0];
+               if (types.test(file.type) || types.test(file.name))
+               {
+                 $('#courseware-filesize').html("文件大小： " + "<span class='number'>" + (file.size/(1024*1024)).toFixed(2) + "</span>" + "M");
+                 file = data.files[0];
+                 data.submit();
+               }
+               else
+               {
+                 alert("上传失败：" + file.name + " 文件格式错误，请上传zip、rar、tar文件");
+               }
+             },
+             start: function(e) {
+               _tip.html('上传中&nbsp;&middot;&middot;&middot;');
+               _filename.html(file.name + "(" + (file.size/(1024*1024)).toFixed(2) + " M)");
+               $('.btn-info').bind('click', false);
+             },
+             done: function (e, data) {
+               _tip.html("文件上传成功！");
+             },
+         });
+       });
     });

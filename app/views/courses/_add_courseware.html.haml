@@ -1,0 +1,14 @@
+.form-group
+  %label(for="inputCourseware" class="col-sm-2 control-label the-third") 上传课件
+  .clearfix1
+  .col-sm-10
+    .courseware
+      -if @course.courseware.blank? 
+        %p.courseware-name 尚未上传任何课件～
+      -else
+        %p.courseware-name #{@course.courseware_name}
+          
+      .clearfix1
+      .edit-course-courseware.btn.btn-info.btn-float
+        %span#courseware-upload-tip 点击上传课件
+        <input id="courseware-fileupload" name="cc[courseware]" type="file">

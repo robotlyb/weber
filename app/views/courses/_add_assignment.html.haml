@@ -1,0 +1,17 @@
+.form-group
+  %label(for="textareaAssignment" class="col-sm-2 control-label the-third") 作业信息
+  .col-sm-10
+    %textarea(class="form-control" id="textareaAssignment" name="assignment[:content]" rows="15" placeholder="作业信息")
+.form-group
+  %label(for="inputAttachment" class="col-sm-2 control-label the-third") 作业附件
+  .clearfix1
+  .col-sm-10
+    .courseware
+      -if @course.has_attachment?
+        %p.courseware-name #{@course.courseware_name}
+      -else
+        %p.courseware-name 尚未上传任何课件～
+      .clearfix1
+      .edit-course-courseware.btn.btn-info.btn-float
+        %span#courseware-upload-tip 点击上传课件
+        <input id="courseware-fileupload" name="cc[courseware]" type="file">

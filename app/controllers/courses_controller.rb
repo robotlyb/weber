@@ -2,13 +2,13 @@
 class CoursesController < ApplicationController
   require 'debugger'
   before_filter :check_admin, :only => [:edit]
-  layout 'back'
+  layout 'back', :only => [:index, :new, :show, :edit]
   def index
     # 查找管理员所发布的课程
     @courses = Course.get_admin_courses(current_user.id)
 
     respond_to do |format|
-      format.html # index.html.erb
+     format.html # index.html.erb
       format.json { render json: @courses }
     end
   end
@@ -16,12 +16,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @course = Course.find(params[:id])
+    @course = Course.find(params[:course_id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @course }
-    end
   end
 
   # GET /courses/new
@@ -31,7 +27,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @course }
+      format.json { render json: @courses }
     end
   end
 
@@ -47,7 +43,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to edit_course_path(current_user.name, @course.id), notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }
@@ -59,11 +55,21 @@ class CoursesController < ApplicationController
   # PUT /courses/1
   # PUT /courses/1.json
   def update
-    @course = Course.find(params[:id])
+    debugger
+    @course = Course.where(:user_id => current_user.id, :title => params[:course][:title]).first
+    if @course.assignment_id.blank?
+      assignment = Assignment.new(params[:assignment])
+      assignment.course_id = @course.id
+    else
+      assignment = @course.assignment 
+      assignment.update_attributes(params[:assignment])
+    end
+    assignment.save
+    @course.assignment_id = assignment.id
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to show_course_url(current_user.name, @course.id)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -85,7 +91,6 @@ class CoursesController < ApplicationController
   end
 
   def update_poster
-    debugger
     @course = Course.find(params[:course_id])
     respond_to do |format|
       format.js do
@@ -93,4 +98,14 @@ class CoursesController < ApplicationController
       end
     end
   end
+
+  def edit_courseware
+    @course = Course.find(params[:course_id])
+    respond_to do |format|
+      format.js do
+        @course.update_attributes(params[:cc])
+      end
+    end
+  end
+  
 end

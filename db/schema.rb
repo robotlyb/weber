@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20131105061902) do
     t.string   "intro"
     t.text     "description"
     t.string   "poster"
+    t.string   "courseware"
     t.boolean  "public"
     t.integer  "comments_count"
     t.integer  "user_id"

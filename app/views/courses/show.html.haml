@@ -1,27 +1,52 @@
-%p#notice= notice
+-content_for :body do
+  %section#about.wrap.about.role.clearfix
+    .content
+      .courses.courses-role
+        .create_course
+          = link_to "创建新课程", new_course_path(current_user.name), :class => "btn btn-success"
+        .clearfix1
+        .full
+          .course
+            .screenshot1#role-screenshot1
+              .eidt-course-poster(style="margin-bottom:5px;")
+                %p 课程封面(最佳宽高比为16：9)
+                .poster-preview
+                  =image_tag("/assets/hit_helper.jpg", :id => "poster")
+            .course-main
+              .form-info
+                =form_for(@course, :action => :update, :method => :put, :class => "form-horizontal form-ad", :role =>"form") do
+                  .form-group
+                    %label(for="inputTitle" class="col-sm-2 control-label") 课程名
+                    .col-sm-10
+                      %input(type="text" class="form-control" id="inputTitle" name="course[title]" placeholder="#{@course.title}" readonly)
+                  .form-group
+                    %label(for="inputIntro" class="col-sm-2 control-label") 课程简介
+                    .col-sm-10
+                      %textarea(class="form-control textareaIntro" id="textareaIntro" name="course[intro]" rows="5" placeholder="#{@course.intro}" readonly)
+                  .form-group
+                    %label(for="textareaDescription" class="col-sm-2 control-label the-third") 课程信息
+                    .col-sm-10
+                      %textarea(class="form-control" id="textareaDescription" name="course[description]" rows="15" placeholder="#{@course.description}" readonly)
+                  .form-group
+                    %label(for="textareaAssignment" class="col-sm-2 control-label the-third") 作业信息
+                    .col-sm-10
+                      -if @course.assignment.content.blank?
+                        %textarea(class="form-control" id="textareaAssignment" name="assignment[content]" rows="15" placeholder="尚无作业信息" readonly)
+                      -else
+                        %textarea(class="form-control" id="textareaAssignment" name="assignment[content]" rows="15" placeholder="#{@course.assignment.content}" readonly)
+                        
+                  .form-group
+                    %label(for="inputCourseware" class="col-sm-2 control-label the-third") 课件
+                    .clearfix1
+                    .col-sm-10
+                      .courseware(style="background-color:#eeeeee;")
+                        -if @course.courseware.blank? 
+                          %p.courseware-name 尚未上传任何课件～
+                        -else
+                          %p.courseware-name #{@course.courseware_name}
+                            
+                        .clearfix1
+            
 
-%p
-  %b Tittle:
-  = @course.tittle
-%p
-  %b Intro:
-  = @course.intro
-%p
-  %b Description:
-  = @course.description
-%p
-  %b Public:
-  = @course.public
-%p
-  %b Comments count:
-  = @course.comments_count
-%p
-  %b User:
-  = @course.user_id
-%p
-  %b Assignment:
-  = @course.assignment_id
-
-= link_to 'Edit', edit_course_path(@course)
-\|
-= link_to 'Back', courses_path
+-content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides'

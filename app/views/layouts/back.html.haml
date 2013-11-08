@@ -18,7 +18,7 @@
             %a(href="#") 个人资料
           -if current_user.is_admin?
             %li 
-              = link_to '我的课程', admin_courses_path
+              = link_to '我的课程', admin_courses_path(current_user.name)
       %li 
         %a(href="#about")
           %span.message 4
