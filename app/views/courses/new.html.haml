@@ -17,7 +17,7 @@
                   <input id="poster-fileupload" name="course[poster]" type="file">
             .course-main
               .form-info
-                =form_tag(@course, :class => "form-horizontal form-ad", :role =>"form") do
+                =form_for(@course, :class => "form-horizontal form-ad", :role =>"form") do
                   .form-group
                     %label(for="inputTitle" class="col-sm-2 control-label") 课程名
                     .col-sm-10
@@ -30,6 +30,7 @@
                     %label(for="textareaDescription" class="col-sm-2 control-label the-third") 课程信息
                     .col-sm-10
                       %textarea(class="form-control" id="textareaDescription" name="course[description]" rows="15" placeholder="课程信息")
+                  .clearfix1
                   .form-group
                     %label(for="inputSubmit" class="col-sm-2 control-label")
                     .col-sm-10

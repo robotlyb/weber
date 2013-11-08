@@ -597,7 +597,6 @@ transition: border linear .2s, box-shadow linear .2s;
 .col-sm-10 .textareaIntro{
   float: left;
   margin-left: 60px;
-  width: 350px;
 }
 
 form .form-group {
