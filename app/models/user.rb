@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :id, :name, :password_digest, :password_reset_sent_at, :password_reset_token, :token, :password
+  attr_accessible :admin, :email, :id, :name, :password_digest, :password_reset_sent_at, :password_reset_token, :token, :password, :cad_id
   
   # 所有用户
   has_many :comments,   :dependent => :destroy

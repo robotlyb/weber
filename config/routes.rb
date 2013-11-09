@@ -14,6 +14,11 @@ Weber::Application.routes.draw do
 
 
   resources :courses
+  #邮箱激活
+  get '/users(:cad_id,:activate_code)' => 'users#activate_account'
+  # 成功页面
+  match 'success' => "users#success", :as => :success
+  match 'failure' => "users#failure", :as => :failure
 	# 编辑edit操作路由
 	get ':member_name/edit' => 'users#edit', :as => :user_edit
 	post "/:member_name/edit" => "users#update"
@@ -37,6 +42,7 @@ Weber::Application.routes.draw do
   match 'update_poster/:course_id' => 'courses#update_poster', :as => :update_poster
   # admin course-courseware
   match 'edit_courseware/:course_id' => 'courses#edit_courseware'
+
 
 
   root :to => 'home#index'

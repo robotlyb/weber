@@ -9,119 +9,19 @@
   %nav.global-nav.affix-top
     %ul
       %li 
-        %a(href="#about") 关于PureWeber
+        %a(href="#recruit") 课程介绍
       %li
-        %a(href="#members") 社团成员
-      %li 
         %a(href="#work") 社团成果
       %li 
-        %a(href="#recruit") 课程介绍
+        %a(href="#members") 社团成员
+      %li 
+        %a(href="#about") 关于PureWeber
       %li
         %a(href="/sign_up" target="_blank" class="btn") 报名参加
 
-  %section#about.wrap.about
-    %header
-      %h2 关于PureWeber 
-
-    %p 程序设计与实践2 – Web开发 是一个公益性的培训课程，由哈尔滨工业大学ACM ICPC创新基地提供支持，旨在提高学生的动手编程能力、培养编程兴趣。该课程由孙大烈老师于2010年秋季学期发起，面向计算机学院低年级学生，讲授基于Linux, Apache, Mysql, PHP的Web开发技术。
-  %section#members.wrap.members
-    .container
-      %header
-        %h2 社团成员 
-      %ul.members-list.clearfix
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/dzy.jpg")
-          %h3 段志言
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/wc.jpg")
-          %h3 邸文晨
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/tdl.jpg")
-          %h3 田大龙
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/fjy.jpg")
-          %h3 付建宇
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/lh.jpg")
-          %h3 李海
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/cyf.jpg")
-          %h3 陈云飞
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/zzt.jpg")
-          %h3 张志桐
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/zx.jpg")
-          %h3 张雄
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/hjw.jpg")
-          %h3 黄靖文
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/zkj.jpg")
-          %h3 朱柯军
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/xw.jpg")
-          %h3 徐伟
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/fcw.jpg")
-          %h3 范陈武
-        %li
-          %figure
-            %a(href="#")
-              =image_tag("/assets/zzq.jpg")
-          %h3 郑志勤
-
-
-  %section#work.wrap.work.clearfix
-    %header
-      %h2 团队成果
-
-    %aside.middle
-      %aside
-        =image_tag ("/assets/acm.png")
-      %section.intro
-        %ul
-          %li HIT ACM/ICPC Group
-          %li 2011年6月
-          %li <a href="http://acm.hit.edu.cn/" target="blank">HOJ</a>是一个网上程序设计题库，它包含2000多道饶有趣味的程序设计题，题目大部分来自ACM国际大学生程序设计竞赛，很多题目就反映工作和生活中的实际问题。用户可以针对某个题目编写程序并提交，让HOJ自动判定程序的对错，几秒之内即可知道对还是错 
-
-    %aside.middle
-      %aside
-        =image_tag ("/assets/hit_helper.jpg")
-      %section.intro
-        %ul
-          %li HIT成绩助手
-          %li 2012年6月
-          %li HIT成绩助手(微信号: hit_helper )是一个基于微信平台应用。它提供为哈工大的学生提供快捷方便地查询成绩、课程表、考试倒计时、饭卡对账单、图书搜索等服务。目前用户达一万两千多，覆盖了约哈工大75%的本科生。
-
-
   %section#recruit.wrap.recruit.clearfix
     %header
-      %h2 招兵马买
+      %h2 课程介绍 
     %aside.container
       %h2 是什么？
       %ul.r_content
@@ -145,3 +45,106 @@
       %ul.r_content
         %li
           如果你想学到更多关于web开发的知识，何不现在就报名参加呢？  
+
+  %section#work.wrap.work.clearfix
+    %header
+      %h2 团队成果
+
+    %aside.middle
+      %aside
+        %a(href="http://acm.hit.edu.cn" target="blank")
+          =image_tag ("/assets/acm.png")
+      %section.intro
+        %ul
+          %li HIT ACM/ICPC Group
+          %li 2011年6月
+          %li <a href="http://acm.hit.edu.cn/" target="blank">HOJ</a>是一个网上程序设计题库，它包含2000多道饶有趣味的程序设计题，题目大部分来自ACM国际大学生程序设计竞赛，很多题目就反映工作和生活中的实际问题。用户可以针对某个题目编写程序并提交，让HOJ自动判定程序的对错，几秒之内即可知道对还是错。
+
+    .clearfix
+    %aside.middle
+      %aside
+        %a(href="http://event.hit.edu.cn/" target="blank")
+          =image_tag ("/assets/event.png")
+      %section.intro
+        %ul
+          %li 工大圈子
+          %li 2012年11月
+          %li <a href="http://event.hit.edu.cn/">工大圈子</a>是面向哈工大学生社团活动的站点。学生通过它能够获取全面、及时、便捷的校内活动；同时，各大社团也能够第一时间在这个平台上发布社团活动。
+    .clearfix
+
+    %aside.middle
+      %aside
+        =image_tag ("/assets/hit_helper.jpg")
+      %section.intro
+        %ul
+          %li HIT成绩助手
+          %li 2013年1月
+          %li HIT成绩助手(微信号: hit_helper )是一个基于微信平台应用。它提供为哈工大的学生提供快捷方便地查询成绩、课程表、考试倒计时、饭卡对账单、图书搜索等服务。目前用户达一万两千多，覆盖了约哈工大75%的本科生。
+
+
+  %section#members.wrap.members
+    .container
+      %header
+        %h2 社团成员 
+      %ul.members-list.clearfix
+        %li
+          %figure
+            =image_tag("/assets/dzy.jpg")
+          %h3 段志言
+        %li
+          %figure
+            =image_tag("/assets/wc.jpg")
+          %h3 邸文晨
+        %li
+          %figure
+            =image_tag("/assets/tdl.jpg")
+          %h3 田大龙
+        %li
+          %figure
+            =image_tag("/assets/fjy.jpg")
+          %h3 付建宇
+        %li
+          %figure
+            =image_tag("/assets/lh.jpg")
+          %h3 李海
+        %li
+          %figure
+            =image_tag("/assets/cyf.jpg")
+          %h3 陈云飞
+        %li
+          %figure
+            =image_tag("/assets/zzt.jpg")
+          %h3 张志桐
+        %li
+          %figure
+            =image_tag("/assets/zx.jpg")
+          %h3 张雄
+        %li
+          %figure
+            =image_tag("/assets/hjw.jpg")
+          %h3 黄靖文
+        %li
+          %figure
+            =image_tag("/assets/zkj.jpg")
+          %h3 朱柯军
+        %li
+          %figure
+            =image_tag("/assets/xw.jpg")
+          %h3 徐伟
+        %li
+          %figure
+            =image_tag("/assets/fcw.jpg")
+          %h3 范陈武
+        %li
+          %figure
+            =image_tag("/assets/zzq.jpg")
+          %h3 郑志勤
+
+
+
+
+  %section#about.wrap.about
+    %header
+      %h2 关于PureWeber 
+
+    %p PureWeber是由哈尔滨工业大学ACM ICPC创新基地提供支持，专注于Web开发的一个学生社团。社团成员多为本科在读的高年级学生，他们崇尚极客精神、热爱hacker文化，对web开发有着浓厚的兴趣,有着丰富的web项目开发经验。社团每年会通过培训的方式吸纳一些优秀的学生加入。

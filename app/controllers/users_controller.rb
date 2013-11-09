@@ -2,6 +2,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  require 'debugger'
   layout 'intro', only: [:new]
   before_filter :auth, only: [:new]
   def index
@@ -43,10 +44,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.active_code = rand(Time.now.to_i).to_s
+    @user.is_activated = false
 
     respond_to do |format|
       if @user.save
         cookies.permanent[:token] = @user.token
+        ActivateMail.sent(@user).deliver 
         format.html { redirect_to member_path(@user.name) }
       else
         format.html { render action: "new" }
@@ -80,5 +84,23 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+  
+  def activate_account
+    @user = User.find_by_cad_id(params[:cad_id])
+    if @user && @user.active_code == params[:active_code]
+      @user.is_activated = 1 
+      @user.save
+      redirect_to :success
+    else
+      redirect_to :failure
+    end
+  end
+  def failure 
+    render :layout => 'intro'
+  end
+
+  def success
+    render :layout => 'intro'
   end
 end

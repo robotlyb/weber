@@ -9,19 +9,20 @@
     .mark
       %h3 PureWeber
     %ul
-      %li 
-        = link_to "退出", logout_path
-      %li.dropdown 
-        %a(href="#" class="dropdown-toggle" data-toggle="dropdown") kgtong<b class="caret"></b>
-        %ul.dropdown-menu
-          %li 
-            %a(href="#") 个人资料
-          -if current_user.is_admin?
+      -if current_user
+        %li 
+          = link_to "退出", logout_path
+        %li.dropdown 
+          %a(href="#" class="dropdown-toggle" data-toggle="dropdown") kgtong<b class="caret"></b>
+          %ul.dropdown-menu
             %li 
-              = link_to '我的课程', admin_courses_path(current_user.name)
-      %li 
-        %a(href="#about")
-          %span.message 4
+              %a(href="#") 个人资料
+            -if current_user.is_admin?
+              %li 
+                = link_to '我的课程', admin_courses_path(current_user.name)
+        %li 
+          %a(href="#about")
+            %span.message 4
   %body
     = yield :body
     
