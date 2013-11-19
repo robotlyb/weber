@@ -1,0 +1,21 @@
+.full
+  .course
+    .screenshot
+      %a(href="#")
+        =image_tag("/assets/hit_helper.jpg", :size =>"200x125")
+    .main
+      %h2(style="text-align:left") Course #0 Foundation
+      .info
+        %span.published_at Jun 16, 2013
+        %span.comments
+          %a(href="/episodes/417-foundation?view=comments") 60 comments
+      .description ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.
+%ul.nav.nav-tabs.nav-justified#myTab(style="margin-bottom: 0px;")
+  %li#course-item.active
+    =link_to "课程详细", "?view=course", :remote => true
+  %li#comments-item
+    =link_to "你来我往", "?view=comments", :remote => true
+  %li#material-item
+    =link_to "学习资料", "?view=material", :remote => true
+  %li#assignment-item
+    =link_to "练习与反馈", "?view=assignment", :remote => true

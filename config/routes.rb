@@ -29,7 +29,7 @@ Weber::Application.routes.draw do
   match '/sessions_path' => "sessions#create", :as => "sessions", :via => :post
   match "logout" => "sessions#logout", :as => "logout"
   
-  get "/:member_name" => "users#show", :as => "member"
+  get "/:member_name" => "home#show", :as => "member"
   post "/member" => "users#create"
 
   # admin course
@@ -44,7 +44,9 @@ Weber::Application.routes.draw do
   match 'update_poster/:course_id' => 'courses#update_poster', :as => :update_poster
   # admin course-courseware
   match 'edit_courseware/:course_id' => 'courses#edit_courseware'
-
+  
+  # normal courses
+  get "/:member_name/courses/:course_id" => "courses#show" , :as => "show_course"
 
 
   root :to => 'home#index'

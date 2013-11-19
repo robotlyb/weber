@@ -160,6 +160,10 @@ img { max-width: 100%; }
   border-bottom: 1px solid #ccc;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEE), color-stop(15%,#F5F5F5));
 }
+.wrap-role {
+  background-color: #FFF;
+  background-image: none;
+}
 .wrap header {
   margin-bottom: 60px;
   font-size: 1.2em;
@@ -632,3 +636,9 @@ form .form-group {
 clear:both;
 }
 
+
+.nav-section {
+  border: 1px solid #e5e5e5;
+  padding: 25px;
+  border-top: none;
+}

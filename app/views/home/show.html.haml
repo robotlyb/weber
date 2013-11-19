@@ -1,0 +1,51 @@
+-content_for :body do
+  %section#about.wrap.about.role.wrap-role
+    .content
+      .courses
+        .side
+          .search_option
+            %h2 Categories
+            %ul
+              %li 
+                %a(href="/?tag_id=2") Active Record
+              %li 
+                %a(href="/?tag_id=2") Active Record
+              %li 
+                %a(href="/?tag_id=2") Active Record
+              %li 
+                %a(href="/?tag_id=2") Active Record
+              %li 
+                %a(href="/?tag_id=2") Active Record
+              %li 
+                %a(href="/?tag_id=2") Active Record
+        .full
+          .course
+            .screenshot
+              %a(href="#")
+                =image_tag("/assets/hit_helper.jpg", :size =>"200x125")
+            .main
+              .info
+                %span.number Course #0
+                %span.published_at Jun 16, 2013
+                %span.comments
+                  %a(href="/episodes/417-foundation?view=comments") 60 comments
+              %h2(style="text-align:left")
+                %a(href="/episodes/417-foundation") Foundation
+              .description ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.
+          .course
+            .screenshot
+              %a(href="#")
+                =image_tag("/assets/acm.png", :height => "125", :width => "200")
+            .main
+              .info
+                %span.number Course #1
+                %span.published_at Jun 16, 2013
+                %span.comments
+                  %a(href="/episodes/417-foundation?view=comments") 60 comments
+              %h2(style="text-align:left")
+                %a(href="/episodes/417-foundation") Foundation
+              
+              .description ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.
+-content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides'
+
