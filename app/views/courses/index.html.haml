@@ -3,7 +3,7 @@
     .content
       .courses.courses-role
         .create_course
-          %button(type="button" class="btn btn-success") 创建新课程
+          = link_to "创建新课程", new_course_path(current_user.name), :class => "btn btn-success"
         .clearfix1
         .full
           -for course in @courses do

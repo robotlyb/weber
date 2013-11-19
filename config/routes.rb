@@ -1,6 +1,8 @@
 #encoding: utf-8
 Weber::Application.routes.draw do
 
+  get "session/create"
+
   resources :submits
 
 

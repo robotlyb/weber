@@ -1,10 +1,18 @@
 -content_for :body do
   %nav.global-nav.affix-top
     %h2 PureWeber欢迎您!
+  %section.wrap#notice
+    %p 为了方便我们管理，请填写真实信息，密码将用来登录课程网站。
   %section#about.wrap.about.role
 
     %aside.form
       = render 'form'
+  :javascript
+    $(document).ready(function() {
+      setTimeout(function () {
+        document.getElementById("notice")[0].style("display: none;")
+      }, 4000);
+    });
 
 - content_for :bootstrap do
   = stylesheet_link_tag 'bootstrap_and_overrides.css'
