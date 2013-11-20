@@ -16,18 +16,10 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    # 有待重构,将对应的ajax放到对应的类中实现
+    @course = Course.find_by_id(params[:course_id])
+    # 同步与异步两种
     respond_to do |format|
-      if params[:view] == "comments"
-        @comments = "comments"
-        format.js {render './template/comments'}
-      elsif params[:view] == "material"
-        @material = "material"
-        format.js {render './template/material'}
-      elsif params[:view] == "assignment"
-        @assignment = "assignment"
-        format.js {render './template/assignment'}
-      elsif params[:view] == "course"
+      if params[:view] == "course"
         @course = "course"
         format.js {render './template/course'}
       else
