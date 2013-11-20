@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :id, :name, :password_digest, :password_reset_sent_at, :password_reset_token, :token, :password, :cad_id
-  
+  attr_accessible :admin, :email, :id, :name, :password_digest, :password_reset_sent_at, :password_reset_token, :token, :password, :cad_id, :avatar
+
   # 所有用户
   has_many :comments,   :dependent => :destroy
   # 普通用户
@@ -9,12 +9,13 @@ class User < ActiveRecord::Base
   has_many :courses,    :dependent => :destroy
   has_many :feedbacks,  :dependent => :destroy
 
-  validates_presence_of :name, :email
+  validates_presence_of :name, :email, :on => :create
 	# 只有create时才验证密码
 	validates_presence_of :password, :on => :create
   validates :name, :email, uniqueness: true
 
   before_create { generate_token(:token) }
+	mount_uploader :avatar, AvatarUploader
 
 
   def password

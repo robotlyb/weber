@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20131119124925) do
     t.string   "cad_id"
     t.string   "active_code"
     t.boolean  "is_activated"
+    t.string   "avatar"
   end
 
 end
