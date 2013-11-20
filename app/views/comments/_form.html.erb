@@ -1,0 +1,78 @@
+<div class="comment" id="new_comment">
+    <div class="avatar"><img alt="Avatar" height="64" src="http://gravatar.com/avatar/cee27b58076e9be7d5af52841c9dc560.png?s=64&amp;d=http%3A%2F%2Frailscasts.com%2Fassets%2Fguest.png" width="64"></div>
+    <div class="main">
+      <div class="headline">
+  <span class="name"> <%= current_user.name %>
+  </span>
+</div>
+
+      <div class="comment_content">
+        <form accept-charset="UTF-8" action="/comments" class="new_comment" data-remote="true" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="NIIMdku7mPA6k9U/ko6W3rMIJfqRJQuEpbkQKmagqf0="></div>
+          
+          <div>
+            <input id="comment_episode_id" name="comment[course_id]" type="hidden" value="<%= #{@course.id} %>">
+          </div>
+          <div class="formatting">
+            支持markdown格式 <a href="javascript:void(0)" class="markdown_link">参考例子</a>
+            <div class="markdown_examples" style="display: none">
+              <table>
+                <tbody><tr>
+                  <td><pre>[Link](http://example.com/)</pre></td>
+                  <td><a href="http://example.com/">Link</a></td>
+                </tr>
+                <tr>
+                  <td><pre>*Italic*</pre></td>
+                  <td><em>Italic</em></td>
+                </tr>
+                <tr>
+                  <td><pre>**Bold**</pre></td>
+                  <td><strong>Bold</strong></td>
+                </tr>
+                <tr>
+                  <td><pre>* Listed
+* Items
+                  </pre></td>
+                  <td><ul><li>Listed</li><li>Items</li></ul></td>
+                </tr>
+                <tr>
+                  <td><pre>&gt; Block quote</pre></td>
+                  <td><blockquote><p>Block quote</p></blockquote></td>
+                </tr>
+                <tr>
+                  <td><pre>`Inline code`</pre></td>
+                  <td><code>Inline code</code></td>
+                </tr>
+                <tr>
+                  <td>
+                    <pre>``` ruby
+puts "code block"
+```
+                    </pre>
+                  </td>
+                  <td>      <div class="code_block">
+        <div class="code_header">
+          ruby
+        </div>
+        <div class="CodeRay">
+  <div class="code"><pre>puts <span class="s"><span class="dl">"</span><span class="k">code block</span><span class="dl">"</span></span></pre></div>
+</div>
+
+      </div>
+
+</td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+          <div class="field">
+            <textarea cols="65" id="comment_content" name="comment[content]" rows="12" style="width: 570px;"></textarea>
+          </div>
+    <div class="clear"></div>
+          <div class="actions">
+            <input name="commit" type="submit" class="btn btn-success" value="发表评论">
+          </div>
+    <div class="clear"></div>
+</form>      </div>
+    </div>
+    <div class="clear"></div>
+</div>

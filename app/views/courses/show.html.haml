@@ -16,6 +16,7 @@
               將內容放在網域下第一層路徑的效果比弄成子網域好，因為可以增加網域的權威性，例如http://example.com/blog會比http://blog.example.com來的好，因為你的內容可以增加http://example.com的權威性。
               搞定爬蟲
               robots.txt這隻檔案是用來告訴搜尋引擎什麼東西不要收錄，在Rails中預設是放在public/robots.txt，你可以直接修改這隻檔案，或是說如果你有多個測試環境(像是staging)，那麼你大概不想讓Google可以收錄staging的內容，因此這時候你需要可以針對Rails環境來動態產生的
+            #comments_form
           .clearfix1
 -content_for :bootstrap do
   = stylesheet_link_tag 'bootstrap_and_overrides'
@@ -24,7 +25,8 @@
     $(document).ready(function() {
       jQuery(function($) {
         $("#myTab a").click( function(){
-        $(".active").removeClass("active");
-        })
+          $(".active").removeClass("active");
+        });
       })
+
     })
