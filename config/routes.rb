@@ -34,6 +34,7 @@ Weber::Application.routes.draw do
   post "/member" => "users#create"
 
   # admin course
+	get "/download_courseware" => "courses#download_courseware", :as => :download
   get "/:member_name/courses" => "courses#index" , :as => "admin_courses"
   get "/:member_name/courses/:course_id" => "courses#show" , :as => "show_course"
   get "/:member_name/:course_id/edit" => "courses#edit", :as => "edit_course"

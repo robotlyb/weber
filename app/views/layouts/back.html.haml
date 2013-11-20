@@ -17,7 +17,7 @@
           %a(href="#" class="dropdown-toggle" data-toggle="dropdown") kgtong<b class="caret"></b>
           %ul.dropdown-menu
             %li 
-              %a(href="#") 个人资料
+              = link_to "个人资料", user_edit_path
             -if current_user.is_admin?
               %li 
                 = link_to '我的课程', admin_courses_path(current_user.name)
