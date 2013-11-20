@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
   require 'debugger'
-  # GET /comments
-  # GET /comments.json
+
+  before_filter :find_commentable, :only => [:create]
+ 
   def index
+    course = Course.find(params[:course_id])
+    @course_id = course.id
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = course.comments
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,13 +45,14 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    debugger
-    @comment = Comment.new(params[:comment])
+    @comment = @commentable.comments.build(params[:comment])
+    @comment.user = current_user
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.js
+        format.js { render 'add_comment' }
       else
+        # to-do
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

@@ -24,5 +24,18 @@ class ApplicationController < ActionController::Base
   def auth
     redirect_to root_path if logged_in?
   end
-
+  
+  # find *able  
+  def method_missing(method, *args, &block)
+    if method =~ /^find_(.*)able/
+      such_able = "@#{$1}able"
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          instance_variable_set(such_able.to_sym, $1.classify.constantize.find(value)) and return
+        end
+      end
+    else
+      super
+    end
+  end
 end

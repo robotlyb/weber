@@ -10,7 +10,7 @@
         <form accept-charset="UTF-8" action="/comments" class="new_comment" data-remote="true" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="NIIMdku7mPA6k9U/ko6W3rMIJfqRJQuEpbkQKmagqf0="></div>
           
           <div>
-            <input id="comment_episode_id" name="comment[course_id]" type="hidden" value="<%= #{@course.id} %>">
+            <input id="comment_episode_id" name="course_id" type="hidden" value="<%=course_id %>"%>
           </div>
           <div class="formatting">
             支持markdown格式 <a href="javascript:void(0)" class="markdown_link">参考例子</a>

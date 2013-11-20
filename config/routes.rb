@@ -50,7 +50,7 @@ Weber::Application.routes.draw do
   get "/:member_name/courses/:course_id" => "courses#show" , :as => "show_course"
 
   # 课程异步加载
-  get "comments" => "comments#index", :as => "comments"
+  get ":course_id/comments" => "comments#index", :as => "comments"
   get "courses"  => "courses#show",   :as => "course"
   get "assignments" => "courses#show", :as => "assignment"
 
