@@ -1,7 +1,8 @@
 default: &default
   image:
     default_poster: "uploads/poster/hit_helper.jpg"
-
+  image:
+	  default_avatar: "uploads/avatar/pureweber.png"
 production:
   <<: *default
 

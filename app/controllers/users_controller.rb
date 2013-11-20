@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       if @user.save
         cookies.permanent[:token] = @user.token
         ActivateMail.sent(@user).deliver 
-        format.html { redirect_to member_path(@user.name) }
+        format.html { redirect_to user_show_path(@user.name) }
       else
         format.html { render action: "new" }
       end
@@ -62,11 +62,10 @@ class UsersController < ApplicationController
   # PUT /users/1.json
 	# 映射到edit页面
   def update
-    @user = User.find_by_name(params[:user]['name'])
-
+    @user = User.find(current_user.id)
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to user_edit_path(@user.name),
+        format.html { redirect_to user_show_path(@user.name),
 											notice: "更改成功！下次登录请用此信息！" }
         format.json { head :no_content }
       else
@@ -85,7 +84,14 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+  def update_avatar
+    @user = User.find_by_name(params['member_name'])
+	  respond_to do |format|
+      format.js do
+			  @user.update_attributes(params[:user])
+	    end
+		end
+	end
   def activate_account
     @user = User.find_by_cad_id(params[:cad_id])
     if @user && @user.active_code == params[:active_code]

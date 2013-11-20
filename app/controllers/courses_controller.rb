@@ -115,5 +115,14 @@ class CoursesController < ApplicationController
       end
     end
   end
-  
+
+	# download the courseware
+	def download_courseware
+		@course = Course.find_by_courseware(params[:courseware])
+		respond_to do |format|
+			format.js do
+				send_file("/uploads/courseware/#{@course.courseware}", filename: "#{@course.courseware}")
+			end
+		end
+	end
 end

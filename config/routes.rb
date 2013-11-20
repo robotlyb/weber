@@ -23,8 +23,9 @@ Weber::Application.routes.draw do
   match 'failure' => "users#failure", :as => :failure
 	# 编辑edit操作路由
 	get ':member_name/edit' => 'users#edit', :as => :user_edit
-	post "/:member_name/edit" => "users#update"
-  match '/sign_in' => "sessions#new", :via => :get, :as => :new_session
+	post "/:member_name/show" => "users#update"
+	get '/:member_name/show' => 'users#show', :as => :user_show
+	match '/sign_in' => "sessions#new", :via => :get, :as => :new_session
   match '/sign_up' => "users#new", :as => :new_user
   match '/sessions_path' => "sessions#create", :as => "sessions", :via => :post
   match "logout" => "sessions#logout", :as => "logout"
@@ -33,13 +34,13 @@ Weber::Application.routes.draw do
   post "/member" => "users#create"
 
   # admin course
+	get "/download_courseware" => "courses#download_courseware", :as => :download
   get "/:member_name/courses" => "courses#index" , :as => "admin_courses"
   get "/:member_name/courses/:course_id" => "courses#show" , :as => "show_course"
   get "/:member_name/:course_id/edit" => "courses#edit", :as => "edit_course"
   put "/:member_name/:course_id/update" => "courses#update", :as => "update_course"
-  post "/member" => "users#create"
   get "/:member_name/course/new" => "courses#new", :as => "new_course"
-  
+	match "/update_avatar/:member_name" => "users#update_avatar",:as => :update_avatar 
   # admin course-poster  
   match 'update_poster/:course_id' => 'courses#update_poster', :as => :update_poster
   # admin course-courseware

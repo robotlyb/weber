@@ -1,0 +1,67 @@
+-content_for :body do
+	%section#about.wrap.about.role.clearfix
+		.content
+			.courses.courses-role
+				.full
+					.course
+						.screenshot1#role-screenshot1
+							.edit-course-poster(style="margin-bottom:5px;")
+								%p 头像
+								.poster-preview
+									=image_tag("/assets/pureweber.png", :id => "poster")
+								.edit-course-poster.btn.btn-info
+									%span#poster-upload-tip 更改头像
+									<input id="poster-fileupload" name="user[avatar]" type="file">
+						.course-main(style="height: 490px;")
+							
+							%div.row.span6.form-horizontal
+								= form_for(@user,url: "/#{@user.name}/show",method: 'post') do |f|
+									.control-group
+										= f.label :name,"姓名", class: "control-label"
+										%div.controls
+											= f.text_field :name, :autofocus => true,placeholder: "姓名"
+									.control-group
+										= f.label :email, "邮箱",class: "control-label"
+										%div.controls
+											= f.email_field :email, :autofocus => true, placeholder: "邮箱"
+									.control-group
+										= f.label :cad_id,"学号",class: "control-label"
+										%div.controls
+											= f.text_field :cad_id, :autofocus => true,placeholder: "学号 "
+									.control-group
+										%div.offset3
+											=f.submit "保存更改", class: "btn btn-success"		
+		
+		
+-content_for :bootstrap do
+	=stylesheet_link_tag 'bootstrap_and_overrides'
+-content_for :template_js do
+	:javascript
+		$(document).ready(function() {
+			 jQuery(function($) {
+           var _tip = $("#avatar-upload-tip");
+          $('#avatar-fileupload').fileupload({
+              dataType: 'script',
+              url: '/update_avatar/#{@user.id}',
+              add: function(e, data){
+                types = /(\.|\/)(gif|jpe?g|png)$/i;
+                file = data.files[0];
+                console.log(file.type);
+                console.log(types);
+                if (types.test(file.type) || types.test(file.name))
+                {
+                  data.submit();
+                }
+                else
+                {
+                  alert(file.name + " 不是图片，请重新选择！");
+                }
+              },
+              start: function(e) {
+                _tip.html('上传中&nbsp;&middot;&middot;&middot;');
+              },
+              done: function (e, data) {
+                _tip.html("头像修改成功!");
+              },
+          });
+        });
