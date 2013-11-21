@@ -1,0 +1,60 @@
+-content_for :body do
+  %section#about.wrap.about.role.clearfix
+    .content
+      .courses.courses-role
+        .create_course
+          = link_to "创建新课程", new_course_path(current_user.name), :class => "btn btn-success"
+        .clearfix1
+        .full
+          -for course in @courses do
+            .course
+              .screenshot1
+                %a(href="#")
+                  =image_tag("#{course.poster}", :size =>"200x125")
+                .course-info.clearfix1
+                  -if course.public?
+                    %h4 课程已公开
+                  -else
+                    %h4 课程尚未公开
+                  %ul.course-actions
+                    %li
+                      =link_to "编辑", edit_course_path(current_user.name, course)
+                    %li
+                      %a(href="#") 删除
+                    -unless course.public?
+                      %li
+                        %a(href="#") 公开课程
+              .main
+                .info
+                  %span.number Course ##{course.id} - 
+                  %span.published_at #{course.created_at.strftime("%Y年%m月%d日")} - 
+                  %span.comments
+                    %a(href="#") #{course.comments_count} comments
+                %h2(style="text-align:left")
+                  %a(href="/episodes/417-foundation") #{course.title}
+                .description #{course.intro}
+              .clearfix1
+          .course
+            .screenshot1
+              %a(href="#")
+                =image_tag("/assets/acm.png", :size =>"200x125")
+              .course-info.clearfix1
+                %h4 课程尚未公开
+                %ul.course-actions
+                  %li
+                    %a(href="#") 编辑
+                  %li
+                    %a(href="#") 删除
+                  %li
+                    %a(href="#") 公开课程
+            .main
+              .info
+                %span.number Course #0
+                %span.published_at Jun 16, 2013
+              %h2(style="text-align:left")
+                %a(href="/episodes/417-foundation") Foundation
+              .description ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.
+            .clearfix1
+  
+-content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides'

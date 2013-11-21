@@ -13,7 +13,7 @@
                   %span#poster-upload-tip 更改头像
                   <input id="poster-fileupload" name="user[avatar]" type="file">
             .course-main(style="height: 490px;")
-              %div.row.span6.form-horizontal
+              .row.span6.form-horizontal(style="margin-top: 100px; margin-left: -70px;")
                 = form_for(@user,url: "/#{@user.name}/show",method: 'post') do |f|
                   .control-group
                     = f.label :name,"姓名", class: "control-label"

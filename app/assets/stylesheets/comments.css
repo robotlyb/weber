@@ -180,3 +180,24 @@ color: #E6E0DB;
   padding: 15px 18px;
 }
 
+.controls input {
+  margin-left: -50px;
+}
+
+.offset3 input{
+margin-left: -20px;
+}
+
+.span6 ul {
+  list-style: none;
+  text-align: left;
+}
+
+.span6 ul li{
+  font-size: 17px;
+}
+
+.contro-group  a {
+  margin-left: -130px;
+margin-top: 30px;
+}

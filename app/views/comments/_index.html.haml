@@ -9,7 +9,7 @@
 -comments.each do |comment|
   .comment
     .avatar
-      = image_tag "http://gravatar.com/avatar/cee27b58076e9be7d5af52841c9dc560.png?s=64&amp;d=http%3A%2F%2Frailscasts.com%2Fassets%2Fguest.png", :size => "64x64"
+      = image_tag "#{comment.user.avatar.url}", :size => "64x64"
     .main
       .headline
         .name #{comment.user.name}
