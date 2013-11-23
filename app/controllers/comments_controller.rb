@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  require 'debugger'
 
   before_filter :find_commentable, :only => [:create]
  

@@ -156,7 +156,7 @@ img { max-width: 100%; }
 }
   
 .wrap {
-  padding: 60px 10px;
+  padding: 40px 10px;
   border-bottom: 1px solid #ccc;
 }
 .wrap-role {
@@ -638,7 +638,7 @@ clear:both;
 
 .nav-section {
   border: 1px solid #e5e5e5;
-  padding: 25px;
+  padding: 15px 25px 15px;
   border-top: none;
 }
 
@@ -652,4 +652,24 @@ clear:both;
 }
 .mark a {
   color: black;
+}
+
+.no-notification{
+  padding: 40px 10px;
+}
+.no-notification h1{
+  font-size: 16px;
+}
+.no-comment{
+  padding: 10px 10px 0px;
+}
+.no-comment h1{
+  font-size: 17px;
+}
+
+.login-inform {
+  padding: 0;
+}
+.login-inform h1{
+  font-size: 17px;
 }

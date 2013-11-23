@@ -1,19 +1,19 @@
-.comment
-  .avatar
-    = image_tag "http://gravatar.com/avatar/cee27b58076e9be7d5af52841c9dc560.png?s=64&amp;d=http%3A%2F%2Frailscasts.com%2Fassets%2Fguest.png", :size => "64x64"
-  .main
-    .headline
-      .name 范陈武
-    .comment_content.content-role @flyerhzm 对底层IO研究颇深，值得细看和研究。
-    .clear
--comments.each do |comment|
-  .comment
-    .avatar
-      = image_tag "#{comment.user.avatar.url}", :size => "64x64"
-    .main
-      .headline
-        .name #{comment.user.name}
-        .reply
-          =image_tag("/assets/reply_button.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
-      .comment_content.content-role #{comment.content}
-      .clear
+-if comments.size > 0
+  -comments.each do |comment|
+    .comment
+      .avatar
+        = image_tag "#{comment.user.avatar.url}", :size => "64x64"
+      .main
+        .headline
+          .name #{comment.user.name}
+          .reply
+            =image_tag("/assets/reply_button.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
+            /=image_tag("/assets/delete.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
+        -if comment.user.is_admin?
+          .comment_content.content-role(style="background: #fffce9;") #{comment.content}
+        -else
+          .comment_content.content-role #{comment.content}
+        .clear
+-else
+  .no-comment
+    %h1 快来抢沙发呀~

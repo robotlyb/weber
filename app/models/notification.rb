@@ -14,6 +14,8 @@ class Notification < ActiveRecord::Base
   # to-do 有待重构
   scope :user_notifications, lambda { |user_id| where(user_id: user_id, unread: 1) }
 
+  scope :total_notifications, lambda { |user_id| where(user_id: user_id) }
+
 
   def self.notify(user, notifiable, action_user, action, content)
     nf = Notification.new(:action => action, :content => content)

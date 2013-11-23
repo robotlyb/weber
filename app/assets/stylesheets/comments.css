@@ -9,6 +9,10 @@ border: solid 1px #ccc;
 color: #FFF;
 padding: 4px;
 }
+.comment .avatar img{
+  height: 64px;
+  width: 64px;
+}
 
 .comment .main {
 margin-left: 83px;

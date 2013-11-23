@@ -6,5 +6,8 @@
       .name #{comment.user.name}
       .reply
         =image_tag("/assets/reply_button.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
-    .comment_content.content-role #{comment.content}
+    -if comment.user.is_admin?
+      .comment_content.content-role.admin-comment-content #{comment.content}
+    -else
+      .comment_content.content-role #{comment.content}
     .clear

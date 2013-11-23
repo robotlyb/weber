@@ -7,6 +7,7 @@
     = stylesheet_link_tag 'back'
     = stylesheet_link_tag 'bootstrap_and_overrides'
     = stylesheet_link_tag 'comments'
+    = stylesheet_link_tag 'notifications'
     %nav.global-nav
       .mark
         %a(href="#{root_path}")
@@ -25,7 +26,7 @@
                 %li 
                   = link_to '我的课程', admin_courses_path
           %li 
-            %a(href="#about")
+            %a(href="#{notifications_path}")
               %span.message #{ current_user.notifications.size }
         -else
           %li 

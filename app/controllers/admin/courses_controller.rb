@@ -1,8 +1,9 @@
 # encoding: utf-8
 class Admin::CoursesController < Admin::BaseController
   require 'debugger'
-  before_filter :check_admin, :only => [:edit]
+  before_filter :check_admin
   layout 'back', :only => [:index, :new, :show, :edit]
+  
 
   def index
     # 查找管理员所发布的课程
