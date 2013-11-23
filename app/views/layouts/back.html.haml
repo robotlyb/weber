@@ -23,10 +23,10 @@
                 = link_to "个人资料", user_show_path(current_user.name)
               -if current_user.is_admin?
                 %li 
-                  = link_to '我的课程', admin_courses_path(current_user.name)
+                  = link_to '我的课程', admin_courses_path
           %li 
             %a(href="#about")
-              %span.message 4
+              %span.message #{ current_user.notifications.size }
         -else
           %li 
             = link_to "参加课程", new_user_path

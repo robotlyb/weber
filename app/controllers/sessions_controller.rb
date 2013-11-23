@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     if @user
       cookies.permanent[:token] = @user.token
       flash[:notice] = "Weclome #{@user.name}"
-      redirect_to member_path(@user.name)
+      redirect_to root_url
     else
       flash[:notice] = "The login or password is not correct."
       redirect_to new_session_path

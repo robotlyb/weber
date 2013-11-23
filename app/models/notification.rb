@@ -1,20 +1,19 @@
-#encoding: utf-8
+# encoding: utf-8
 class Notification < ActiveRecord::Base
-  # 被@到的人
-  MENTION_REGEXP = /@([a-zA-Z0-9_\-\p{han}]+)/u
 
   ACTION_MENTION = 'mention'
   ACTION_REPLY = 'reply'
-  ACTION_TOPIC = 'topic'
-  ACTION_REWARD = 'reward'
 
   attr_accessible :action, :content
 
-  belongs_to :user
+  belongs_to :notifiable, :polymorphic => true
 
-  belongs_to :notificable, :polymorphic => true
+  belongs_to :user
+  belongs_to :action_user, :class_name => 'User'
   
-  belongs_to :action_user, :class => 'User'
+  # to-do 有待重构
+  scope :user_notifications, lambda { |user_id| where(user_id: user_id, unread: 1) }
+
 
   def self.notify(user, notifiable, action_user, action, content)
     nf = Notification.new(:action => action, :content => content)
@@ -22,5 +21,22 @@ class Notification < ActiveRecord::Base
     nf.user = user
     nf.action_user = action_user
     nf.save
+  end
+    def action_info_prefix
+    case self.action
+    when ACTION_MENTION
+      '在回复'
+    when ACTION_REPLY
+      '在'
+    end
+  end
+
+  def action_info_suffix
+    case self.action
+    when ACTION_MENTION
+      '时提到'
+    when ACTION_REPLY
+      '里回复'
+    end
   end
 end

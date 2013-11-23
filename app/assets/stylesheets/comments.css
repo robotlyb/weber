@@ -199,5 +199,11 @@ margin-left: -20px;
 
 .contro-group  a {
   margin-left: -130px;
-margin-top: 30px;
+  margin-top: 30px;
+}
+
+.headline .reply {
+  float: right;
+  margin-top: -22px;
+  cursor: pointer;
 }

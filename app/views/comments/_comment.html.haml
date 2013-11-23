@@ -1,8 +1,10 @@
 .comment
   .avatar
-    = image_tag "comment.user.avatar", :size => "64x64"
+    = image_tag "#{comment.user.avatar_url}", :size => "64x64"
   .main
     .headline
       .name #{comment.user.name}
+      .reply
+        =image_tag("/assets/reply_button.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
     .comment_content.content-role #{comment.content}
     .clear

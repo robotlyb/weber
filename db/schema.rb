@@ -54,12 +54,12 @@ ActiveRecord::Schema.define(:version => 20131121052149) do
 
   create_table "notifications", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "unread"
+    t.integer  "unread",          :limit => 1, :default => 1
     t.integer  "notifiable_id"
     t.string   "notifiable_type"
     t.integer  "action_user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.text     "content"
     t.string   "action"
   end

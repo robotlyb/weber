@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   before_create { generate_token(:token) }
 	mount_uploader :avatar, AvatarUploader
 
-
+  
   def password
     @password
   end
@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
   
   def is_admin?
     return admin == 1
+  end
+
+  def notifications
+    Notification.user_notifications(id)
   end
 
   private

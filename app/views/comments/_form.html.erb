@@ -1,9 +1,10 @@
+<% if current_user %>
 <div class="comment" id="new_comment">
-    <div class="avatar"><img alt="Avatar" height="64" src="http://gravatar.com/avatar/cee27b58076e9be7d5af52841c9dc560.png?s=64&amp;d=http%3A%2F%2Frailscasts.com%2Fassets%2Fguest.png" width="64"></div>
-    <div class="main">
-      <div class="headline">
-  <span class="name"> <%= current_user.name %>
-  </span>
+      <div class="avatar"><img alt="Avatar" height="64" width="64" src="<%= current_user.avatar.url %>"></div>
+      <div class="main">
+        <div class="headline">
+    <span class="name"> <%= current_user.name %>
+    </span>
 </div>
 
       <div class="comment_content">
@@ -76,3 +77,4 @@ puts "code block"
     </div>
     <div class="clear"></div>
 </div>
+<%end%>

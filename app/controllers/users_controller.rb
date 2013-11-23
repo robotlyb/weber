@@ -1,10 +1,9 @@
 # encoding:utf-8
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
   require 'debugger'
   layout 'intro', only: [:new]
   before_filter :auth, only: [:new]
+
   def index
     @users = User.all
 
@@ -14,16 +13,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find_by_name(params[:member_name])
     
     render :layout => 'back'
   end
 
-  # GET /users/new
-  # GET /users/new.json
   def new
     @user = User.new
 
@@ -33,15 +28,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
   def edit
    
 		@user = User.find_by_name(params['member_name'])
 		render :layout => 'back'
 	end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(params[:user])
     @user.active_code = rand(Time.now.to_i).to_s
@@ -58,8 +50,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
 	# 映射到edit页面
   def update
     @user = User.find(current_user.id)

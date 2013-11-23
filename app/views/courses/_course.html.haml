@@ -16,6 +16,6 @@
   %li#comments-item
     =link_to "你来我往", comments_path(@course.id), :remote => true
   %li#material-item
-    =link_to "学习资料", download_path, :remote => true
+    =link_to "学习资料", root_path, :remote => true
   %li#assignment-item
     =link_to "练习与反馈", "?view=assignment", :remote => true

@@ -9,7 +9,7 @@ class Admin::CoursesController < Admin::BaseController
     @courses = Course.get_admin_courses(current_user.id)
 
     respond_to do |format|
-     format.html # index.html.erb
+      format.html
       format.json { render json: @courses }
     end
   end
@@ -28,7 +28,7 @@ class Admin::CoursesController < Admin::BaseController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to edit_course_path(current_user.name, @course.id), notice: 'Course was successfully created.' }
+        format.html { redirect_to edit_admin_course_path(@course), notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }
@@ -39,7 +39,7 @@ class Admin::CoursesController < Admin::BaseController
 
   # GET /courses/1/edit
   def edit
-    @course = Course.find(params[:course_id])
+    @course = Course.find(params[:id])
   end
 
   def destroy
@@ -53,8 +53,7 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def update
-    debugger
-    @course = Course.where(:user_id => current_user.id, :title => params[:course][:title]).first
+    @course = Course.find(params[:id])
     if @course.assignment_id.blank?
       assignment = Assignment.new(params[:assignment])
       assignment.course_id = @course.id
@@ -67,7 +66,7 @@ class Admin::CoursesController < Admin::BaseController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to show_course_url(current_user.name, @course.id)}
+        format.html { redirect_to course_path(@course)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

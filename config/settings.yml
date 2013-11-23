@@ -1,12 +1,13 @@
-default: &default
+defaults: &defaults
   image:
-    default_poster: "uploads/poster/hit_helper.jpg"
-	  default_avatar: "uploads/avatar/kgtong.png"
-production:
-  <<: *default
+    default_poster: "/uploads/poster/course.jpg"
+    default_avatar: "/uploads/avatar/avatar.jpg"
 
 development:
-  <<: *default
+  <<: *defaults
 
 test:
-  <<: *default
+  <<: *defaults
+
+production:
+  <<: *defaults
