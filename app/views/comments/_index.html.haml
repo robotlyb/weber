@@ -8,11 +8,10 @@
           .name #{comment.user.name}
           .reply
             =image_tag("/assets/reply_button.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
-            /=image_tag("/assets/delete.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
         -if comment.user.is_admin?
-          .comment_content.content-role(style="background: #fffce9;") #{comment.content}
+          .comment_content.content-role(style="background: #fffce9;") #{markdown(comment.content)}
         -else
-          .comment_content.content-role #{comment.content}
+          .comment_content.content-role #{markdown(comment.content)}
         .clear
 -else
   .no-comment

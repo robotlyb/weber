@@ -46,3 +46,6 @@ gem "rmagick"
 gem 'settingslogic'
 gem 'jquery-fileupload-rails', '0.4.0'
 gem "mini_magick", "~> 3.6.0"
+# for markdown
+gem 'redcarpet'
+gem 'coderay'

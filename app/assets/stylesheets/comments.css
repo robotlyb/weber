@@ -143,41 +143,12 @@ padding: 4px 7px;
 border: solid 1px #b6b6b6;
 border-bottom: none;
 }
-.CodeRay {
-overflow: auto;
-border: 1px solid #777;
-border-top: none;
-padding: 5px 7px;
-font-size: 13px;
-margin: 0;
-line-height: 17px;
-}
-.CodeRay .s {
-color: #a4c260;
-}
 .code_block {
 margin: 12px 0;
 clear: both;
 }
 .markdown_examples .code_block {
 width: 200px;
-}
-.CodeRay, .CodeRay pre {
-font-family: "Menlo","Courier New","Terminal",monospace;
-background-color: #232323;
-color: #E6E0DB;
-font-family: monospace;
-white-space: pre;
-margin: 1em 0px;
-}
-.CodeRay {
-font-size: 13px;
-line-height: 17px;
-}
-.CodeRay pre {
-font-family: "Menlo","Courier New","Terminal",monospace;
-background-color: #232323;
-color: #E6E0DB;
 }
 .content-role {
   text-align: left;

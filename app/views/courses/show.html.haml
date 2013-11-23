@@ -3,9 +3,9 @@
     .content
       .courses.courses-role
         =render partial: 'course', :locals => { course: @course }
-        .nav-section
+        .nav-section(style="text-align: left;")
           %aside.middle
-            %section.course-item #{@course.description} 
+            %section.course-item #{markdown(@course.description)} 
             #comments_form
           .clearfix1
 

@@ -9,3 +9,13 @@ $(document).on('click', ".reply img", function () {
     new_current = mention + '';
   focus_comment_box.val(new_current);
 });
+
+
+$(document).on('click', ".markdown_link", function () {
+  var ele = document.getElementById("markdown_examples").style;
+  var display = ele.display;
+  if (display == "none")
+    ele.display = "";
+  else
+    ele.display = "none";
+});

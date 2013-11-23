@@ -34,6 +34,7 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -101,6 +102,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (2.3.0)
     rmagick (2.13.2)
     sass (3.2.12)
     sass-rails (3.2.6)
@@ -134,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   carrierwave
+  coderay
   coffee-rails (~> 3.2.1)
   debugger
   haml-rails
@@ -142,6 +145,7 @@ DEPENDENCIES
   mini_magick (~> 3.6.0)
   mysql2
   rails (= 3.2.13)
+  redcarpet
   rmagick
   sass-rails (~> 3.2.3)
   settingslogic
