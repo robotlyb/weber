@@ -52,7 +52,7 @@
     $(document).ready(function() {
        jQuery(function($) {
            var _tip = $("#poster-upload-tip");
-          $('#poster-fileupload').fileupload({
+           $('#poster-fileupload').fileupload({
               dataType: 'script',
               url: 'update_poster',
               add: function(e, data){
@@ -102,7 +102,6 @@
              start: function(e) {
                _tip.html('上传中&nbsp;&middot;&middot;&middot;');
                _filename.html(file.name + "(" + (file.size/(1024*1024)).toFixed(2) + " M)");
-               $('.btn-info').bind('click', false);
              },
              done: function (e, data) {
                _tip.html("文件上传成功！");
