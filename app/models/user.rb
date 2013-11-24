@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   # 所有用户
   has_many :comments,   :dependent => :destroy
+  has_many :notifications, :dependent => :destroy
   # 普通用户
   has_many :submits,    :dependent => :destroy
   # 管理员
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
   before_create { generate_token(:token) }
 	mount_uploader :avatar, AvatarUploader
 
-
+  
   def password
     @password
   end
@@ -51,6 +52,15 @@ class User < ActiveRecord::Base
   
   def is_admin?
     return admin == 1
+  end
+
+  def notifications
+    Notification.user_notifications(id)
+  end
+  
+  # 数据表中存在的notifications数量，不管read还是unread
+  def total_notifications
+    Notification.total_notifications(id)
   end
 
   private

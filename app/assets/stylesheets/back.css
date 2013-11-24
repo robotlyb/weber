@@ -123,7 +123,7 @@ img { max-width: 100%; }
 
 .global-nav .mark {
   float: left; 
-  margin-left: 5%;
+  margin-left: 6%;
 }
 
 .mark h3 {
@@ -156,9 +156,8 @@ img { max-width: 100%; }
 }
   
 .wrap {
-  padding: 60px 10px;
+  padding: 40px 10px;
   border-bottom: 1px solid #ccc;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEE), color-stop(15%,#F5F5F5));
 }
 .wrap-role {
   background-color: #FFF;
@@ -194,7 +193,7 @@ img { max-width: 100%; }
   color: #666;
   border: none;
   background: #2c3035;
-  padding: 80px 0 20px;
+  padding: 40px 0 20px;
 }
 .footer .container { max-width: 820px; }
 .footer header {
@@ -639,6 +638,38 @@ clear:both;
 
 .nav-section {
   border: 1px solid #e5e5e5;
-  padding: 25px;
+  padding: 15px 25px 15px;
   border-top: none;
+}
+
+.mark img {
+  float: left;  
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.mark h3 {
+  float: left;
+}
+.mark a {
+  color: black;
+}
+
+.no-notification{
+  padding: 40px 10px;
+}
+.no-notification h1{
+  font-size: 16px;
+}
+.no-comment{
+  padding: 10px 10px 0px;
+}
+.no-comment h1{
+  font-size: 17px;
+}
+
+.login-inform {
+  padding: 0;
+}
+.login-inform h1{
+  font-size: 17px;
 }

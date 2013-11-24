@@ -1,0 +1,39 @@
+-content_for :body do
+  %section#about.wrap.about.role.wrap-role
+    .content
+      .courses.courses-role
+        .nav-section.notification-head
+          =link_to "Home ", root_path, :style => "text-decoration:none;"
+          \/ 消息
+        .nav-section.notification-role
+          .nav-section.notification-clear
+            -if @notifications.size > 0
+              =link_to "清空", clear_notifications_path, :class => "btn btn-danger", :method => :delete, :confirm => "确定删除所有通知吗?"
+            -else
+              =link_to "清空", "javascript:void(0)", :class => "btn btn-danger"
+            %h1
+              通知提醒 
+              %small(style="font-size:12px;margin-left:5px;") (#{@total_notifications}条)
+            .clearfix
+          %aside.middle
+            -if @notifications.size == 0
+              .no-notification
+                %h1 尚无通知提醒。
+            -else
+              -@notifications.each do |notification|
+                .comment(id="nf-#{notification.id}")
+                  .avatar
+                    = image_tag "#{notification.action_user.avatar_url}", :size => "64x64"
+                  .main
+                    .headline
+                      .name
+                        #{notification.action_user.name}
+                        = notification.action_info_prefix
+                        %a(href="#") #{notification.notifiable.title}
+                        = notification.action_info_suffix + '了你'
+                      .delete
+                        =link_to "删除", notification, :method => :delete, :remote => true
+                    .comment_content.content-role #{notification.content}
+
+-content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides'

@@ -4,7 +4,7 @@
       .courses
         .side
           .search_option
-            %h2 Categories
+            %h2 课程通知 
             %ul
               %li 
                 %a(href="/?tag_id=2") Active Record
@@ -19,19 +19,21 @@
               %li 
                 %a(href="/?tag_id=2") Active Record
         .full
-          .course
-            .screenshot
-              %a(href="#")
-                =image_tag("/assets/hit_helper.jpg", :size =>"200x125")
-            .main
-              .info
-                %span.number Course #0
-                %span.published_at Jun 16, 2013
-                %span.comments
-                  %a(href="/episodes/417-foundation?view=comments") 60 comments
-              %h2(style="text-align:left")
-                %a(href="/episodes/417-foundation") Foundation
-              .description ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.
+          -for course in @courses
+            .course
+              .screenshot
+                %a(href="#{course_path(course.id)}")
+                  =image_tag("#{course.poster}", :size =>"200x125")
+              .main
+                .info
+                  %span.number 课程 ##{course.id} - 
+                  %span.published_at #{course.created_at.strftime("%Y年%m月%d日")} - 
+                  %span.comments
+                    %a(href="#") #{course.comments_count}条评论
+                %h2(style="text-align:left")
+                  =link_to "#{course.title}", course_path(course.id)
+                .description #{course.intro}
+              .clearfix1
           .course
             .screenshot
               %a(href="#")
@@ -41,7 +43,7 @@
                 %span.number Course #1
                 %span.published_at Jun 16, 2013
                 %span.comments
-                  %a(href="/episodes/417-foundation?view=comments") 60 comments
+                  %a(href="/episodes/417-foundation?view=comments") 60条评论
               %h2(style="text-align:left")
                 %a(href="/episodes/417-foundation") Foundation
               

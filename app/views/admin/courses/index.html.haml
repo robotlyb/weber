@@ -1,0 +1,39 @@
+-content_for :body do
+  %section#about.wrap.about.role.clearfix
+    .content
+      .courses.courses-role
+        .create_course
+          = link_to "创建新课程", new_admin_course_path, :class => "btn btn-success"
+        .clearfix1
+        .full
+          -for course in @courses do
+            .course
+              .screenshot1
+                %a(href="#{admin_course_path(course.id)}")
+                  =image_tag("#{course.poster}", :size =>"200x125")
+                .course-info.clearfix1
+                  -if course.public?
+                    %h4 课程已公开
+                  -else
+                    %h4 课程尚未公开
+                  %ul.course-actions
+                    %li
+                      =link_to "编辑", edit_admin_course_path(course)
+                    %li
+                      %a(href="#") 删除
+                    -unless course.public?
+                      %li
+                        %a(href="#") 公开课程
+              .main
+                .info
+                  %span.number #{course.id}号课程 - 
+                  %span.published_at #{course.created_at.strftime("%Y年%m月%d日")} - 
+                  %span.comments
+                    %a(href="#") #{course.comments_count}条评论
+                %h2(style="text-align:left")
+                  %a(href="/episodes/417-foundation") #{course.title}
+                .description #{course.intro}
+              .clearfix1
+  
+-content_for :bootstrap do
+  = stylesheet_link_tag 'bootstrap_and_overrides'

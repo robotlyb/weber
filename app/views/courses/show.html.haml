@@ -2,22 +2,13 @@
   %section#about.wrap.about.role.wrap-role
     .content
       .courses.courses-role
-        =render 'course'
-        .nav-section
+        =render partial: 'course', :locals => { course: @course }
+        .nav-section(style="text-align: left;")
           %aside.middle
-            %aside
-            %section.course-item
-              做過那麼多的Projects幾乎每個老闆都會要求SEO，幾個專案              下來我也整理了一些SEO基本佈置，在這邊就分享一下，這裡              並沒有太高深的SEO技巧，都是基本SEO所需要的配置，但因               為是基本，所以非常重要，如果你平常寫筆記有在重點部分               畫星星的習慣，請把這篇印下來在上面畫上一個銀河。
-              搞定網址
-              良好的網址對於SEO非常重要，一般在Rails裡面使用[:id]的方法我們可以使用friendly_id這套Gem來幫助我們，你可以把像是http://example.com/products/123變成http://example.com/products/好商品不買嗎這樣的網址，除此之外他最好用的功能就是可以記錄你的網址記錄，例如說你原先的網址已經被搜尋引擎收錄，但今天你有需求要把網址改掉，這時候搜尋引擎點進來的人就會404找不到網頁，但是friendly_id可以幫我們把原先的網址用301轉址到新的網址，對SEO有非常重要的幫助，friendly_id使用上很簡單，你看完他的ReadMe就沒問題了。
-              其他關於URL的建議：
-              網址內要有關鍵字，越前面越好。
-              注意因為不同參數所產生同樣的網頁，使用Canonical Url的方式來避免重複內容，除非你是搜尋結果頁。
-              將內容放在網域下第一層路徑的效果比弄成子網域好，因為可以增加網域的權威性，例如http://example.com/blog會比http://blog.example.com來的好，因為你的內容可以增加http://example.com的權威性。
-              搞定爬蟲
-              robots.txt這隻檔案是用來告訴搜尋引擎什麼東西不要收錄，在Rails中預設是放在public/robots.txt，你可以直接修改這隻檔案，或是說如果你有多個測試環境(像是staging)，那麼你大概不想讓Google可以收錄staging的內容，因此這時候你需要可以針對Rails環境來動態產生的
+            %section.course-item #{markdown(@course.description)} 
             #comments_form
           .clearfix1
+
 -content_for :bootstrap do
   = stylesheet_link_tag 'bootstrap_and_overrides'
 -content_for :template_js do
@@ -27,6 +18,5 @@
         $("#myTab a").click( function(){
           $(".active").removeClass("active");
         });
-      })
-
+      });
     })

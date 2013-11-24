@@ -1,4 +1,4 @@
 $(".course-item").empty();
 $("#comments-item").addClass("active");
 $('.course-item').empty().append("<%= j render partial: 'index', locals: {comments: @comments} %>")
-$('#comments_form').empty().append("<%= j render partial: 'form', locals: {comment: @comment} %>")
+$('#comments_form').empty().append("<%= j render partial: 'form', locals: {comment: @comment, course_id: @course_id} %>")

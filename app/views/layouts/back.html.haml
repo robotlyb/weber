@@ -2,29 +2,37 @@
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
   %head
     %title PureWeber
-  %meta(http-equiv="content-type" content="text/html; charset=gb2312")
-  = csrf_meta_tag
-  = stylesheet_link_tag 'back'
-  = stylesheet_link_tag 'bootstrap_and_overrides'
-  = stylesheet_link_tag 'comments'
-  %nav.global-nav
-    .mark
-      %h3 PureWeber
-    %ul
-      -if current_user
-        %li 
-          = link_to "退出", logout_path
-        %li.dropdown 
-          %a(href="#" class="dropdown-toggle" data-toggle="dropdown") kgtong<b class="caret"></b>
-          %ul.dropdown-menu
-            %li 
-              = link_to "个人资料", user_edit_path
-            -if current_user.is_admin?
+    %meta(http-equiv="content-type" content="text/html; charset=utf-8")
+    = csrf_meta_tag
+    = stylesheet_link_tag 'back'
+    = stylesheet_link_tag 'bootstrap_and_overrides'
+    = stylesheet_link_tag 'comments'
+    = stylesheet_link_tag 'notifications'
+    %nav.global-nav
+      .mark
+        %a(href="#{root_path}")
+          =image_tag("/assets/icon.png")
+          %h3 PureWeber课程
+      %ul
+        -if current_user
+          %li 
+            = link_to "退出", logout_path
+          %li.dropdown 
+            %a(href="#" class="dropdown-toggle" data-toggle="dropdown") #{current_user.name}<b class="caret"></b>
+            %ul.dropdown-menu
               %li 
-                = link_to '我的课程', admin_courses_path(current_user.name)
-        %li 
-          %a(href="#about")
-            %span.message 4
+                = link_to "个人资料", user_show_path(current_user.name)
+              -if current_user.is_admin?
+                %li 
+                  = link_to '我的课程', admin_courses_path
+          %li 
+            %a(href="#{notifications_path}")
+              %span.message #{ current_user.notifications.size }
+        -else
+          %li 
+            = link_to "参加课程", new_user_path
+          %li 
+            = link_to "登陆", new_session_path
   %body
     = yield :body
     

@@ -1,6 +1,9 @@
 -content_for :header do
   %nav.header_login.clearfix
-    %a(href="/sign_in" target="_blank" class="h_button") 登陆
+    -if current_user
+      =link_to "查看课程", member_path(current_user.name), :class => "h_button"
+    -else
+      %a(href="/sign_in" target="_blank" class="h_button") 登陆
   %header.hero
     %figure
       %a(href="http://www.pureweber.com/") 
@@ -140,9 +143,6 @@
           %figure
             =image_tag("/assets/zzq.jpg")
           %h3 郑志勤
-
-
-
 
   %section#about.wrap.about
     %header

@@ -1,0 +1,13 @@
+.comment
+  .avatar
+    = image_tag "#{comment.user.avatar_url}", :size => "64x64"
+  .main
+    .headline
+      .name #{comment.user.name}
+      .reply
+        =image_tag("/assets/reply_button.png", :class => "mention_button", data: { mention: "@#{ comment.user.name }" }) 
+    -if comment.user.is_admin?
+      .comment_content.content-role.admin-comment-content #{markdown(comment.content)}
+    -else
+      .comment_content.content-role #{markdown(comment.content)}
+    .clear

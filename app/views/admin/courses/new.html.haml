@@ -3,7 +3,7 @@
     .content
       .courses.courses-role
         .create_course
-          = link_to "返回课程列表", new_course_path(current_user.name), :class => "btn btn-success"
+          = link_to "返回课程列表", admin_courses_path, :class => "btn btn-success"
         .clearfix1
         .full
           .course
@@ -11,13 +11,13 @@
               .eidt-course-poster(style="margin-bottom:5px;")
                 %p 课程封面(最佳宽高比为16：9)
                 .poster-preview
-                  =image_tag("/assets/hit_helper.jpg", :id => "poster")
+                  =image_tag("#{@course.poster_url}", :id => "poster")
                 .edit-course-poster.btn.btn-info
                   %span#poster-upload-tip 更新课程封面
                   <input id="poster-fileupload" name="course[poster]" type="file">
             .course-main
               .form-info
-                =form_for(@course, :class => "form-horizontal form-ad", :role =>"form") do
+                =form_for([:admin, @course], :class => "form-horizontal form-ad", :role =>"form") do
                   .form-group
                     %label(for="inputTitle" class="col-sm-2 control-label") 课程名
                     .col-sm-10

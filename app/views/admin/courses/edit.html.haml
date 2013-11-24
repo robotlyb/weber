@@ -3,7 +3,7 @@
     .content
       .courses.courses-role
         .create_course
-          = link_to "创建新课程", new_course_path(current_user.name), :class => "btn btn-success"
+          = link_to "创建新课程", new_admin_course_path, :class => "btn btn-success"
         .clearfix1
         .full
           .course
@@ -11,13 +11,13 @@
               .eidt-course-poster(style="margin-bottom:5px;")
                 %p 课程封面(最佳宽高比为16：9)
                 .poster-preview
-                  =image_tag("/assets/hit_helper.jpg", :id => "poster")
+                  =image_tag("#{@course.poster}", :id => "poster")
                 .edit-course-poster.btn.btn-info
                   %span#poster-upload-tip 更新课程封面
                   <input id="poster-fileupload" name="course[poster]" type="file">
             .course-main
               .form-info
-                =form_for(@course, :action => :update, :method => :put, :class => "form-horizontal form-ad", :role =>"form") do
+                =form_for([:admin, @course], :action => :update, :method => :put, :class => "form-horizontal form-ad", :role =>"form") do
                   .form-group
                     %label(for="inputTitle" class="col-sm-2 control-label") 课程名
                     .col-sm-10
@@ -52,9 +52,9 @@
     $(document).ready(function() {
        jQuery(function($) {
            var _tip = $("#poster-upload-tip");
-          $('#poster-fileupload').fileupload({
+           $('#poster-fileupload').fileupload({
               dataType: 'script',
-              url: '/update_poster/#{@course.id}',
+              url: 'update_poster',
               add: function(e, data){
                 types = /(\.|\/)(gif|jpe?g|png)$/i;
                 file = data.files[0];
@@ -84,9 +84,9 @@
          var _filename = $(".courseware-name");
          $('#courseware-fileupload').fileupload({
              dataType: 'script',
-             url: "/edit_courseware/#{@course.id}",
+             url: "edit_courseware",
              add: function(e, data){
-               types = /(\.|\/)(txt|doc|docx|ppt|pptx|tar|zip|rar)$/i;
+               types = /(\.|\/)(pdf|txt|doc|docx|ppt|pptx|tar|zip|rar)$/i;
                file = data.files[0];
                if (types.test(file.type) || types.test(file.name))
                {
@@ -96,13 +96,12 @@
                }
                else
                {
-                 alert("上传失败：" + file.name + " 文件格式错误，请上传zip、rar、tar文件");
+                 alert("上传失败：" + file.name + " 文件格式错误，请上传pdf、zip、rar、tar文件");
                }
              },
              start: function(e) {
                _tip.html('上传中&nbsp;&middot;&middot;&middot;');
                _filename.html(file.name + "(" + (file.size/(1024*1024)).toFixed(2) + " M)");
-               $('.btn-info').bind('click', false);
              },
              done: function (e, data) {
                _tip.html("文件上传成功！");
